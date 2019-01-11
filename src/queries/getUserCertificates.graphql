@@ -1,0 +1,24 @@
+query getUserCertifications(
+  $count: Int, $encryptedEmail: String!
+) {
+  certifications(first: $count, encryptedWinnerEmails: [$encryptedEmail]) {
+    edges {
+      cursor
+      node {
+        id
+        state
+        winnerName
+
+        badge {
+          id
+          name
+        }
+      }
+    }
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+    }
+  }
+}
+
