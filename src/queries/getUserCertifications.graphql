@@ -1,7 +1,7 @@
 query getUserCertifications(
-  $count: Int, $encryptedEmail: String!
+  $count: Int, $after: String, $encryptedEmail: String!
 ) {
-  certifications(first: $count, encryptedWinnerEmails: [$encryptedEmail]) {
+  certifications(first: $count, after: $after, encryptedWinnerEmails: [$encryptedEmail]) {
     edges {
       cursor
       node {
@@ -21,4 +21,3 @@ query getUserCertifications(
     }
   }
 }
-

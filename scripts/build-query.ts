@@ -1,6 +1,8 @@
 import * as fs from "fs";
 import gql from "graphql-tag";
 
+import { stripIndent } from "common-tags";
+
 async function main() {
   console.log("Start Generating Queries...");
 
@@ -8,35 +10,57 @@ async function main() {
   const queryFolder = `${process.cwd()}/src/queries`;
   const files = fs.readdirSync(`${process.cwd()}/src/queries`).filter(f => f.endsWith(".graphql"));
 
+  const queryMethods: string[] = [];
+
   for (const file of files) {
     const graphqlPath = `${queryFolder}/${file}`;
-    const tsPath = `${queryFolder}/${file.replace(".graphql", ".ts")}`;
     const graphql = fs.readFileSync(graphqlPath).toString();
+    const gqlTag = gql(graphql);
 
-    const query = gql(graphql).definitions[0];
-    const queryHasVariable =
-    const queryName = query.definitions[0].name.value;
-    console.log(JSON.stringify(query, null, 2));
+    for (const query of gqlTag.definitions) {
+      const queryHasVariable = query.variableDefinitions.length > 0;
+      const queryName = query.name.value;
 
-    fs.writeFileSync(
-      tsPath,
-`import gql from "graphql-tag";
-import { ApolloClient } from 'apollo-client';
-
-import { ${queryName}, ${queryName}Variables } from "./__generated__/${queryName}";
-
-export async function ${queryName}(
-  client: ApolloClient<any>,
-  variables: ${queryName}Variables
-) {
-  return await client.query<${queryName}>({
-    query: ${JSON.stringify(query)},
-    variables,
-  });
-}`
-    )
-
+      queryMethods.push(
+        (() => {
+          if (queryHasVariable) {
+            return `
+          private ${queryName}Gql = ${JSON.stringify(gqlTag)} as any;
+          public async ${queryName}<T>(client: ApolloClient<T>, variables: Types.${queryName}Variables) {
+            return await client.query<Types.${queryName}>({ query: this.${queryName}Gql, variables });
+          }
+            `;
+          } else {
+            return `
+          private ${queryName}Gql = ${JSON.stringify(gqlTag)} as any;
+          public async ${queryName}<T>(client: ApolloClient<T>) {
+            return await client.query<Types.${queryName}>({ query: this.${queryName}Gql });
+          }
+            `;
+          }
+        })()
+      )
+    }
   }
+
+  // Create /src/queries/index.ts
+  fs.writeFileSync(
+    `${queryFolder}/index.ts`,
+    (() => {
+      return stripIndent`
+        import { ApolloClient } from 'apollo-client';
+
+        import * as Types from "./types";
+
+        export abstract class Queries<T> {
+          constructor() {}
+
+          abstract get queryClient(): ApolloClient<T>
+          ${queryMethods.join("")}
+        }
+      `;
+    })(),
+  );
 }
 
 main();

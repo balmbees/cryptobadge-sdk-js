@@ -1,54 +1,69 @@
-// import { ApolloClient } from 'apollo-client';
-// import { createHttpLink } from 'apollo-link-http';
-// import { InMemoryCache } from 'apollo-cache-inmemory';
-// import fetch from 'node-fetch';
+import { ApolloClient } from 'apollo-client';
+import { createHttpLink } from 'apollo-link-http';
+import { InMemoryCache, NormalizedCacheObject } from 'apollo-cache-inmemory';
+import * as Crypto from "crypto";
+import fetch from 'node-fetch';
 
-// const httpLink = createHttpLink({
-//   uri: "https://api.sandbox.cryptobadge.app/graphql",
-//   headers: {
-//     "open-api-access-token": "e14iZBK0JxUAygKd",
-//   },
-//   fetch: fetch as any,
-// });
+import { Queries } from "./queries";
 
-// export const client = new ApolloClient({
-//   cache: new InMemoryCache(),
-//   link: httpLink,
-// });
+export class CryptobadgeClient extends Queries<NormalizedCacheObject> {
+  private apolloClient: ApolloClient<NormalizedCacheObject>;
 
-// import gql from "graphql-tag";
+  private url: string;
+  private accessToken: string;
+  private secretKey: string;
 
-// import { getMyBadges } from "./queries/__generated__/getMyBadges";
+  constructor(options: {
+    url?: string,
+    accessToken?: string,
+    secretKey?: string,
+  }) {
+    super();
 
-// const query = gql`
-//   query getMyBadges {
-//     me {
-//       badges(first: 100) {
-//         edges {
-//           cursor
-//           node {
-//             id
-//             name
-//             backgroundColor
-//             imageUrl
-//             resourceUrl
-//             path
-//             description
-//             criteria
-//           }
-//         }
-//         pageInfo {
-//           hasPreviousPage
-//           hasPreviousPage
-//         }
-//       }
-//     }
-//   }
-// `;
-// console.log("Query : ", query);
+    this.url = options.url || process.env.CRYPTOBADGE_API_URL || "https://api.cryptobadge.app/graphql";
+    this.accessToken = (() => {
+      const accessToken = options.accessToken || process.env.CRYPTOBADGE_ACCESS_TOKEN;
+      if (!accessToken) {
+        throw new Error("CRYPTOBADGE_ACCESS_TOKEN is required");
+      }
+      return accessToken;
+    })();
+    this.secretKey = (() => {
+      const secretKey = options.secretKey || process.env.CRYPTOBADGE_SECRET_KEY;
+      if (!secretKey) {
+        throw new Error("CRYPTOBADGE_SECRET_KEY is required");
+      }
+      return secretKey;
+    })();
 
-// client.query<getMyBadges>({
-//   query
-// }).then((res) => {
-//   console.log(res.data.me!.badges);
-// });
+    const httpLink = createHttpLink({
+      uri: this.url,
+      headers: { "open-api-access-token": this.accessToken },
+      fetch: fetch as any,
+    });
+
+    this.apolloClient = new ApolloClient({
+      cache: new InMemoryCache(),
+      link: httpLink,
+    });
+  }
+
+  get queryClient() {
+    return this.apolloClient;
+  }
+
+  public encryptEmail(email: string) {
+    const cipher = Crypto.createCipheriv('aes-256-cbc', this.secretKey, Buffer.alloc(16));
+    const encryptedMsg = cipher.update(email, 'utf8', 'base64') + cipher.final('base64');
+    return encryptedMsg.toString();
+  }
+
+  public debug() {
+    console.log(
+      this.url,
+      this.accessToken,
+      this.apolloClient,
+    );
+  }
+}
+

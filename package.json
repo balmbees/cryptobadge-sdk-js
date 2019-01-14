@@ -1,17 +1,19 @@
 {
-  "name": "cryptobadge-sdk",
-  "version": "1.0.0",
+  "name": "@vingle/cryptobadge-sdk",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc",
-    "generate": "gql-gen"
+    "build": "rm -Rf ./dst && tsc",
+    "generate": "apollo codegen:generate --target typescript --outputFlat --globalTypesFile=./src/__generated__/global.ts ./src/queries/types.ts && ts-node ./scripts/build-query.ts"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/common-tags": "^1.8.0",
     "apollo": "^2.1.9",
+    "common-tags": "^1.8.0",
     "graphql-code-generator": "^0.15.2",
     "graphql-codegen-typescript-common": "^0.15.2",
     "graphql-codegen-typescript-graphql-files-modules": "^0.15.2",
@@ -28,6 +30,7 @@
     "apollo-link-http": "^1.5.9",
     "graphql": "^14.0.2",
     "graphql-tag": "^2.10.0",
+    "node": "^8.0.0",
     "node-fetch": "^2.3.0"
   }
 }
