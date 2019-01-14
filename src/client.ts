@@ -1,8 +1,8 @@
-import { ApolloClient } from 'apollo-client';
-import { createHttpLink } from 'apollo-link-http';
-import { InMemoryCache, NormalizedCacheObject } from 'apollo-cache-inmemory';
+import { InMemoryCache, NormalizedCacheObject } from "apollo-cache-inmemory";
+import { ApolloClient } from "apollo-client";
+import { createHttpLink } from "apollo-link-http";
 import * as Crypto from "crypto";
-import fetch from 'node-fetch';
+import fetch from "node-fetch";
 
 import { Queries } from "./queries";
 
@@ -53,17 +53,8 @@ export class CryptobadgeClient extends Queries<NormalizedCacheObject> {
   }
 
   public encryptEmail(email: string) {
-    const cipher = Crypto.createCipheriv('aes-256-cbc', this.secretKey, Buffer.alloc(16));
-    const encryptedMsg = cipher.update(email, 'utf8', 'base64') + cipher.final('base64');
+    const cipher = Crypto.createCipheriv("aes-256-cbc", this.secretKey, Buffer.alloc(16));
+    const encryptedMsg = cipher.update(email, "utf8", "base64") + cipher.final("base64");
     return encryptedMsg.toString();
   }
-
-  public debug() {
-    console.log(
-      this.url,
-      this.accessToken,
-      this.apolloClient,
-    );
-  }
 }
-

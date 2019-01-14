@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rm -Rf ./dst && tsc",
+    "build": "rm -Rf dst && tsc",
+    "lint": "tslint -p tsconfig.json",
     "generate": "apollo codegen:generate --target typescript --outputFlat --globalTypesFile=./src/__generated__/global.ts ./src/queries/types.ts && ts-node ./scripts/build-query.ts"
   },
   "author": "",
@@ -14,23 +15,18 @@
     "@types/common-tags": "^1.8.0",
     "apollo": "^2.1.9",
     "common-tags": "^1.8.0",
-    "graphql-code-generator": "^0.15.2",
-    "graphql-codegen-typescript-common": "^0.15.2",
-    "graphql-codegen-typescript-graphql-files-modules": "^0.15.2",
-    "graphql-codegen-typescript-resolvers": "^0.15.2",
-    "graphql-codegen-typescript-server": "^0.15.2",
+    "graphql-tag": "^2.10.0",
     "ts-node": "^7.0.1",
+    "tslint": "^5.12.1",
     "typescript": "^3.2.2"
   },
   "dependencies": {
+    "graphql": "^14.0.2",
     "@types/graphql": "^14.0.4",
     "@types/node-fetch": "^2.1.4",
     "apollo-cache-inmemory": "^1.3.12",
     "apollo-client": "^2.4.8",
     "apollo-link-http": "^1.5.9",
-    "graphql": "^14.0.2",
-    "graphql-tag": "^2.10.0",
-    "node": "^8.0.0",
     "node-fetch": "^2.3.0"
   }
 }

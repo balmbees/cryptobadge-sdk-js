@@ -33,7 +33,7 @@ async function main() {
           } else {
             return `
           private ${queryName}Gql = ${JSON.stringify(gqlTag)} as any;
-          public async ${queryName}<T>(client: ApolloClient<T>) {
+          public async ${queryName}(client: ApolloClient<T>) {
             return await client.query<Types.${queryName}>({ query: this.${queryName}Gql });
           }
             `;
@@ -48,16 +48,17 @@ async function main() {
     `${queryFolder}/index.ts`,
     (() => {
       return stripIndent`
-        import { ApolloClient } from 'apollo-client';
+        import { ApolloClient } from "apollo-client";
 
         import * as Types from "./types";
 
         export abstract class Queries<T> {
-          constructor() {}
-
           abstract get queryClient(): ApolloClient<T>
+          // tslint:disable
           ${queryMethods.join("")}
+          // tslint:enable
         }
+
       `;
     })(),
   );
