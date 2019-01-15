@@ -37,9 +37,9 @@ export class CryptobadgeClient extends Queries<NormalizedCacheObject> {
     })();
 
     const httpLink = createHttpLink({
-      uri: this.url,
-      headers: { "open-api-access-token": this.accessToken },
       fetch: fetch as any,
+      headers: { "open-api-access-token": this.accessToken },
+      uri: this.url,
     });
 
     this.apolloClient = new ApolloClient({

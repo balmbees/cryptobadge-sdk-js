@@ -58,7 +58,6 @@ async function main() {
           ${queryMethods.join("")}
           // tslint:enable
         }
-
       `;
     })(),
   );

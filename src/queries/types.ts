@@ -15,6 +15,18 @@ export interface getUserCertifications_certifications_edges_node_badge {
    * The name of the badge
    */
   name: string;
+  /**
+   * A URI pointing to the badge's image.
+   */
+  imageUrl: any;
+  /**
+   * The badge's description.
+   */
+  description: string;
+  /**
+   * The Http URL for the badge.
+   */
+  resourceUrl: any;
 }
 
 export interface getUserCertifications_certifications_edges_node {
@@ -24,13 +36,9 @@ export interface getUserCertifications_certifications_edges_node {
    */
   id: string;
   /**
-   * Determines the state of the certification.
+   * The Http URL for the certification.
    */
-  state: CertificationState;
-  /**
-   * The winner's name of the certification
-   */
-  winnerName: string;
+  resourceUrl: any;
   badge: getUserCertifications_certifications_edges_node_badge;
 }
 

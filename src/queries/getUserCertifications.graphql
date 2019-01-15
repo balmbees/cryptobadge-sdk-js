@@ -1,17 +1,24 @@
 query getUserCertifications(
   $count: Int, $after: String, $encryptedEmail: String!
 ) {
-  certifications(first: $count, after: $after, encryptedWinnerEmails: [$encryptedEmail]) {
+  certifications(
+    first: $count,
+    after: $after,
+    state: CERTIFIED,
+    encryptedWinnerEmails: [$encryptedEmail]
+  ) {
     edges {
       cursor
       node {
         id
-        state
-        winnerName
+        resourceUrl
 
         badge {
           id
           name
+          imageUrl
+          description
+          resourceUrl
         }
       }
     }
