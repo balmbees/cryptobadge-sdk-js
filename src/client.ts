@@ -17,7 +17,7 @@ export class CryptobadgeClient extends Queries<NormalizedCacheObject> {
     url?: string,
     accessToken?: string,
     secretKey?: string,
-  }) {
+  } = {}) {
     super();
 
     this.url = options.url || process.env.CRYPTOBADGE_API_URL || "https://api.cryptobadge.app/graphql";
