@@ -11,7 +11,7 @@ export class CryptobadgeClient extends Queries<NormalizedCacheObject> {
 
   private url: string;
   private accessToken: string;
-  private secretKey: string;
+  private secretKey: string | null;
 
   constructor(options: {
     url?: string,
@@ -28,13 +28,7 @@ export class CryptobadgeClient extends Queries<NormalizedCacheObject> {
       }
       return accessToken;
     })();
-    this.secretKey = (() => {
-      const secretKey = options.secretKey || process.env.CRYPTOBADGE_SECRET_KEY;
-      if (!secretKey) {
-        throw new Error("CRYPTOBADGE_SECRET_KEY is required");
-      }
-      return secretKey;
-    })();
+    this.secretKey = options.secretKey || process.env.CRYPTOBADGE_SECRET_KEY || null;
 
     const httpLink = createHttpLink({
       fetch: fetch as any,
@@ -53,6 +47,10 @@ export class CryptobadgeClient extends Queries<NormalizedCacheObject> {
   }
 
   public encryptEmail(email: string) {
+    if (this.secretKey === null) {
+      throw new Error("CRYPTOBADGE_SECRET_KEY is required");
+    }
+
     const cipher = Crypto.createCipheriv("aes-256-cbc", this.secretKey, Buffer.alloc(16));
     const encryptedMsg = cipher.update(email, "utf8", "base64") + cipher.final("base64");
     return encryptedMsg.toString();
