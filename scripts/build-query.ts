@@ -26,20 +26,20 @@ async function main() {
           if (queryHasVariable) {
             return `
           private ${queryName}Gql = ${JSON.stringify(gqlTag)} as any;
-          public async ${queryName}<T>(client: ApolloClient<T>, variables: Types.${queryName}Variables) {
-            return await client.query<Types.${queryName}>({ query: this.${queryName}Gql, variables });
+          public async ${queryName}(variables: Types.${queryName}Variables) {
+            return await this.queryClient.query<Types.${queryName}>({ query: this.${queryName}Gql, variables });
           }
             `;
           } else {
             return `
           private ${queryName}Gql = ${JSON.stringify(gqlTag)} as any;
-          public async ${queryName}(client: ApolloClient<T>) {
-            return await client.query<Types.${queryName}>({ query: this.${queryName}Gql });
+          public async ${queryName}() {
+            return await this.queryClient.query<Types.${queryName}>({ query: this.${queryName}Gql });
           }
             `;
           }
         })()
-      )
+      );
     }
   }
 
