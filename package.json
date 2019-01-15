@@ -1,13 +1,18 @@
 {
   "name": "@vingle/cryptobadge-sdk",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
-  "main": "index.js",
+  "main": "./dst/index.js",
+  "typings": "./dst/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rm -Rf dst && tsc",
+    "build": "rm -Rf dst && tsc -d",
     "lint": "tslint -p tsconfig.json",
     "generate": "apollo codegen:generate --target typescript --outputFlat --globalTypesFile=./src/__generated__/global.ts ./src/queries/types.ts && ts-node ./scripts/build-query.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/balmbees/cryptobadge-sdk-js.git"
   },
   "author": "",
   "license": "ISC",
@@ -16,6 +21,7 @@
     "apollo": "^2.1.9",
     "common-tags": "^1.8.0",
     "graphql-tag": "^2.10.0",
+    "np": "^3.1.0",
     "ts-node": "^7.0.1",
     "tslint": "^5.12.1",
     "typescript": "^3.2.2"
