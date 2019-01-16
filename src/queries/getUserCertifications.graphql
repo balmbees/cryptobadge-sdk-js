@@ -7,6 +7,7 @@ query getUserCertifications(
     state: CERTIFIED,
     encryptedWinnerEmails: [$encryptedEmail]
   ) {
+    totalCount
     edges {
       cursor
       node {
@@ -18,7 +19,7 @@ query getUserCertifications(
           name
           imageUrl
           description
-          resourceUrl
+          creatorName
         }
       }
     }

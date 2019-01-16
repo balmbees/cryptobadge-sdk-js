@@ -24,9 +24,9 @@ export interface getUserCertifications_certifications_edges_node_badge {
    */
   description: string;
   /**
-   * The Http URL for the badge.
+   * The creator name of the badge
    */
-  resourceUrl: any;
+  creatorName: string;
 }
 
 export interface getUserCertifications_certifications_edges_node {
@@ -68,6 +68,10 @@ export interface getUserCertifications_certifications_pageInfo {
 
 export interface getUserCertifications_certifications {
   __typename: "CertificationConnection";
+  /**
+   * The total number of items in the connection
+   */
+  totalCount: number;
   /**
    * A list of edges.
    */
