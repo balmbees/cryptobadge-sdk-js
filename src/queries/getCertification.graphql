@@ -1,5 +1,5 @@
 query getCertification($id: ID!) {
-  certification: nodeField(id: $id) {
+  certification: node(id: $id) {
     ... on Certification {
       id
       resourceUrl

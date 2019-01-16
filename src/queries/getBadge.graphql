@@ -1,5 +1,5 @@
 query getBadge($id: ID!) {
-  badge: nodeField(id: $id) {
+  badge: node(id: $id) {
     ... on Badge {
       id
       name
