@@ -1,0 +1,32 @@
+mutation createCertification(
+  $badgeId: ID!,
+  $winnerName: String!,
+  $encryptedWinnerEmail: String!,
+  $issuedAt: DateTime,
+  $expiresAt: DateTime,
+  $evidence: String!
+) {
+  createCertification(
+    input: {
+			badgeId: $badgeId,
+      winnerName: $winnerName,
+      encryptedWinnerEmail: $encryptedWinnerEmail,
+		  issuedAt: $issuedAt,
+  		expiresAt: $expiresAt,
+  		evidence: $evidence
+    }
+  ) {
+    certification {
+      id
+      winnerName
+      badge {
+        id
+        name
+      }
+      issuedAt
+      expiresAt
+      evidence
+      state
+    }
+  }
+}

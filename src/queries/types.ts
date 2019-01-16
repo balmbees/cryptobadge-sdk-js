@@ -2,6 +2,72 @@
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL mutation operation: createCertification
+// ====================================================
+
+export interface createCertification_createCertification_certification_badge {
+  __typename: "Badge";
+  /**
+   * The ID of an object
+   */
+  id: string;
+  /**
+   * The name of the badge
+   */
+  name: string;
+}
+
+export interface createCertification_createCertification_certification {
+  __typename: "Certification";
+  /**
+   * The ID of an object
+   */
+  id: string;
+  /**
+   * The winner's name of the certification
+   */
+  winnerName: string;
+  badge: createCertification_createCertification_certification_badge;
+  /**
+   * When the certification was issued.
+   */
+  issuedAt: any;
+  /**
+   * When the certification will be expired.
+   */
+  expiresAt: any | null;
+  /**
+   * The evidence of certification
+   */
+  evidence: string;
+  /**
+   * Determines the state of the certification.
+   */
+  state: CertificationState;
+}
+
+export interface createCertification_createCertification {
+  __typename: "CreateCertificationPayload";
+  certification: createCertification_createCertification_certification | null;
+}
+
+export interface createCertification {
+  createCertification: createCertification_createCertification | null;
+}
+
+export interface createCertificationVariables {
+  badgeId: string;
+  winnerName: string;
+  encryptedWinnerEmail: string;
+  issuedAt?: any | null;
+  expiresAt?: any | null;
+  evidence: string;
+}
+
+/* tslint:disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL query operation: getUserCertifications
 // ====================================================
 

@@ -17,29 +17,60 @@ async function main() {
     const graphql = fs.readFileSync(graphqlPath).toString();
     const gqlTag = gql(graphql);
 
-    for (const query of gqlTag.definitions) {
-      const queryHasVariable = query.variableDefinitions.length > 0;
-      const queryName = query.name.value;
+    for (const def of gqlTag.definitions) {
+      if (def.kind === "OperationDefinition") {
+        switch (def.operation as string) {
+          case "mutation": {
+            const queryHasVariable = def.variableDefinitions.length > 0;
+            const queryName = def.name.value;
 
-      queryMethods.push(
-        (() => {
-          if (queryHasVariable) {
-            return `
+            queryMethods.push(
+              (() => {
+                if (queryHasVariable) {
+                  return `
+          private ${queryName}Gql = ${JSON.stringify(gqlTag)} as any;
+          public async ${queryName}(variables: Types.${queryName}Variables) {
+            return await this.queryClient.mutate<Types.${queryName}>({ mutation: this.${queryName}Gql, variables });
+          }
+            `;
+                } else {
+                  return `
+          private ${queryName}Gql = ${JSON.stringify(gqlTag)} as any;
+          public async ${queryName}() {
+            return await this.queryClient.mutate<Types.${queryName}>({ mutation: this.${queryName}Gql });
+          }
+            `;
+                }
+              })()
+            );
+            break;          }
+          case "query": {
+            const queryHasVariable = def.variableDefinitions.length > 0;
+            const queryName = def.name.value;
+
+            queryMethods.push(
+              (() => {
+                if (queryHasVariable) {
+                  return `
           private ${queryName}Gql = ${JSON.stringify(gqlTag)} as any;
           public async ${queryName}(variables: Types.${queryName}Variables) {
             return await this.queryClient.query<Types.${queryName}>({ query: this.${queryName}Gql, variables });
           }
             `;
-          } else {
-            return `
+                } else {
+                  return `
           private ${queryName}Gql = ${JSON.stringify(gqlTag)} as any;
           public async ${queryName}() {
             return await this.queryClient.query<Types.${queryName}>({ query: this.${queryName}Gql });
           }
             `;
+                }
+              })()
+            );
+            break;
           }
-        })()
-      );
+        }
+      }
     }
   }
 
