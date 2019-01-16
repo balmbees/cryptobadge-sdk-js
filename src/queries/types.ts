@@ -146,6 +146,10 @@ export interface getCertification_certification_Certification_badge {
    */
   description: string;
   /**
+   * The Http URL for the badge.
+   */
+  resourceUrl: any;
+  /**
    * The creator name of the badge
    */
   creatorName: string;

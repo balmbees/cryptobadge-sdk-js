@@ -30,6 +30,8 @@ describe(CryptobadgeClient.name, () => {
           badge: {
             __typename: "Badge",
             id: "QmFkZ2U6MDAwMDAwMDAwMDAwMDAyNw==",
+            creatorName: "Vingle",
+            description: "Vingle Test Badge",
             imageUrl: "https://media.vingle.net/images/ca_l/2tkiaqg3uj.jpg",
             name: "Vingle Test Badge",
             resourceUrl: "https://cryptobadge.app/badges/vingle-test",
@@ -50,6 +52,7 @@ describe(CryptobadgeClient.name, () => {
               description: "Description",
               id: "QmFkZ2U6MDAwMDAwMDAwMDAwMDAyOA==",
               imageUrl: "https://dummyimage.com/600x600/000/fff",
+              resourceUrl: "https://cryptobadge.app/badges/tw3q1201-3a01-412a-90fa-w256e9b2fdq7black",
               name: "Test Badge",
             },
             id: "Q2VydGlmaWNhdGU6MDAwMDAwMDAwMDAwMDAxMA==",

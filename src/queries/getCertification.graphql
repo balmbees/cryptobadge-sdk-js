@@ -9,6 +9,7 @@ query getCertification($id: ID!) {
         name
         imageUrl
         description
+        resourceUrl
         creatorName
       }
     }
