@@ -16,6 +16,11 @@
     "type": "git",
     "url": "git+https://github.com/balmbees/cryptobadge-sdk-js.git"
   },
+  "files": [
+    "dst/**/*.js",
+    "dst/**/*.d.ts",
+    "dst/**/*.json"
+  ],
   "author": "",
   "license": "ISC",
   "devDependencies": {

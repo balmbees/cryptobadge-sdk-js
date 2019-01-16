@@ -1,0 +1,16 @@
+query getCertification($id: ID!) {
+  certification: nodeField(id: $id) {
+    ... on Certification {
+      id
+      resourceUrl
+
+      badge {
+        id
+        name
+        imageUrl
+        description
+        creatorName
+      }
+    }
+  }
+}

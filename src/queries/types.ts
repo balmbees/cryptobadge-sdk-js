@@ -106,6 +106,67 @@ export interface getBadgeVariables {
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL query operation: getCertification
+// ====================================================
+
+export interface getCertification_certification_Badge {
+  __typename: "Badge";
+}
+
+export interface getCertification_certification_Certification_badge {
+  __typename: "Badge";
+  /**
+   * The ID of an object
+   */
+  id: string;
+  /**
+   * The name of the badge
+   */
+  name: string;
+  /**
+   * A URI pointing to the badge's image.
+   */
+  imageUrl: any;
+  /**
+   * The badge's description.
+   */
+  description: string;
+  /**
+   * The creator name of the badge
+   */
+  creatorName: string;
+}
+
+export interface getCertification_certification_Certification {
+  __typename: "Certification";
+  /**
+   * The ID of an object
+   */
+  id: string;
+  /**
+   * The Http URL for the certification.
+   */
+  resourceUrl: any;
+  badge: getCertification_certification_Certification_badge;
+}
+
+export type getCertification_certification = getCertification_certification_Badge | getCertification_certification_Certification;
+
+export interface getCertification {
+  /**
+   * Fetches an object given its ID
+   */
+  certification: getCertification_certification | null;
+}
+
+export interface getCertificationVariables {
+  id: string;
+}
+
+/* tslint:disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL query operation: getUserCertifications
 // ====================================================
 
