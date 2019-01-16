@@ -3,7 +3,6 @@ query getUsersCertifications(
 ) {
   certifications(first: $count, after: $after, encryptedWinnerEmails: $encryptedEmails) {
     edges {
-      cursor
       node {
         id
         state
@@ -17,7 +16,7 @@ query getUsersCertifications(
     }
     pageInfo {
       hasNextPage
-      hasPreviousPage
+      endCursor
     }
   }
 }

@@ -9,7 +9,6 @@ query getUserCertifications(
   ) {
     totalCount
     edges {
-      cursor
       node {
         id
         resourceUrl
@@ -25,7 +24,7 @@ query getUserCertifications(
     }
     pageInfo {
       hasNextPage
-      hasPreviousPage
+      endCursor
     }
   }
 }

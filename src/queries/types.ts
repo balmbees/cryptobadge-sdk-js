@@ -71,7 +71,11 @@ export interface createCertificationVariables {
 // GraphQL query operation: getBadge
 // ====================================================
 
-export interface getBadge_badge {
+export interface getBadge_badge_Certification {
+  __typename: "Certification";
+}
+
+export interface getBadge_badge_Badge {
   __typename: "Badge";
   /**
    * The ID of an object
@@ -86,14 +90,24 @@ export interface getBadge_badge {
    */
   imageUrl: any;
   /**
+   * The badge's description.
+   */
+  description: string;
+  /**
    * The Http URL for the badge.
    */
   resourceUrl: any;
+  /**
+   * The creator name of the badge
+   */
+  creatorName: string;
 }
+
+export type getBadge_badge = getBadge_badge_Certification | getBadge_badge_Badge;
 
 export interface getBadge {
   /**
-   * Badge for the given ID
+   * Fetches an object given its ID
    */
   badge: getBadge_badge | null;
 }
@@ -210,10 +224,6 @@ export interface getUserCertifications_certifications_edges_node {
 export interface getUserCertifications_certifications_edges {
   __typename: "CertificationEdge";
   /**
-   * A cursor for use in pagination
-   */
-  cursor: string;
-  /**
    * The item at the end of the edge
    */
   node: getUserCertifications_certifications_edges_node | null;
@@ -226,9 +236,9 @@ export interface getUserCertifications_certifications_pageInfo {
    */
   hasNextPage: boolean;
   /**
-   * When paginating backwards, are there more items?
+   * When paginating forwards, the cursor to continue.
    */
-  hasPreviousPage: boolean;
+  endCursor: string | null;
 }
 
 export interface getUserCertifications_certifications {
@@ -299,10 +309,6 @@ export interface getUsersCertifications_certifications_edges_node {
 export interface getUsersCertifications_certifications_edges {
   __typename: "CertificationEdge";
   /**
-   * A cursor for use in pagination
-   */
-  cursor: string;
-  /**
    * The item at the end of the edge
    */
   node: getUsersCertifications_certifications_edges_node | null;
@@ -315,9 +321,9 @@ export interface getUsersCertifications_certifications_pageInfo {
    */
   hasNextPage: boolean;
   /**
-   * When paginating backwards, are there more items?
+   * When paginating forwards, the cursor to continue.
    */
-  hasPreviousPage: boolean;
+  endCursor: string | null;
 }
 
 export interface getUsersCertifications_certifications {

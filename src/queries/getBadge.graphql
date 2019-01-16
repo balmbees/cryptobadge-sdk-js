@@ -1,8 +1,12 @@
 query getBadge($id: ID!) {
-  badge(id: $id) {
-    id
-    name
-    imageUrl
-    resourceUrl
+  badge: nodeField(id: $id) {
+    ... on Badge {
+      id
+      name
+      imageUrl
+      description
+      resourceUrl
+      creatorName
+    }
   }
 }
