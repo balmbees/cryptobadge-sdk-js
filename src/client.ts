@@ -11,12 +11,12 @@ export class CryptobadgeClient extends Queries<NormalizedCacheObject> {
 
   private url: string;
   private accessToken: string;
-  private secretKey: string | null;
+  private authorizationKey: string | null;
 
   constructor(options: {
     url?: string,
     accessToken?: string,
-    secretKey?: string,
+    authorizationKey?: string,
   } = {}) {
     super();
 
@@ -28,11 +28,18 @@ export class CryptobadgeClient extends Queries<NormalizedCacheObject> {
       }
       return accessToken;
     })();
-    this.secretKey = options.secretKey || process.env.CRYPTOBADGE_SECRET_KEY || null;
+    this.authorizationKey = options.authorizationKey || process.env.CRYPTOBADGE_AUTHORIZATION_KEY || null;
+
+    const headers: { [key: string]: string } = {
+      "X-CryptoBadge-Access-Token": this.accessToken
+    };
+    if (this.authorizationKey) {
+      headers["X-CryptoBadge-Authorization"] = this.authorizationKey;
+    }
 
     const httpLink = createHttpLink({
       fetch: fetch as any,
-      headers: { "open-api-access-token": this.accessToken },
+      headers,
       uri: this.url,
     });
 
@@ -47,11 +54,11 @@ export class CryptobadgeClient extends Queries<NormalizedCacheObject> {
   }
 
   public encryptEmail(email: string) {
-    if (this.secretKey === null) {
+    if (this.authorizationKey === null) {
       throw new Error("CRYPTOBADGE_SECRET_KEY is required");
     }
 
-    const cipher = Crypto.createCipheriv("aes-256-cbc", this.secretKey, Buffer.alloc(16));
+    const cipher = Crypto.createCipheriv("aes-256-cbc", this.authorizationKey, Buffer.alloc(16));
     const encryptedMsg = cipher.update(email, "utf8", "base64") + cipher.final("base64");
     return encryptedMsg.toString();
   }
