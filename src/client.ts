@@ -2,7 +2,7 @@ import { InMemoryCache, NormalizedCacheObject } from "apollo-cache-inmemory";
 import { ApolloClient } from "apollo-client";
 import { createHttpLink } from "apollo-link-http";
 import * as Crypto from "crypto";
-// node-fetch polyfill
+// node-fetch's polyfill
 import "whatwg-fetch";
 
 import fetch from "node-fetch";
