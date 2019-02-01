@@ -1,0 +1,15 @@
+mutation createBadge($input: CreateBadgeInput!) {
+  createBadge(input: $input) {
+    badge {
+      id
+      name
+      backgroundColor
+      textColor
+      imageUrl
+      resourceUrl
+      path
+      description
+      criteria
+    }
+  }
+}

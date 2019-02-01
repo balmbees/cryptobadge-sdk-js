@@ -2,6 +2,66 @@
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL mutation operation: createBadge
+// ====================================================
+
+export interface createBadge_createBadge_badge {
+  __typename: "Badge";
+  /**
+   * The ID of an object
+   */
+  id: string;
+  /**
+   * The name of the badge
+   */
+  name: string;
+  /**
+   * A RGB hexadecimal notation for the background color of the badge
+   */
+  backgroundColor: any;
+  /**
+   * A RGB hexadecimal notation for the text color of the badge
+   */
+  textColor: any;
+  /**
+   * A URI pointing to the badge's image.
+   */
+  imageUrl: any;
+  /**
+   * The Http URL for the badge.
+   */
+  resourceUrl: any;
+  /**
+   * The path for the badge.
+   */
+  path: string;
+  /**
+   * The badge's description.
+   */
+  description: string;
+  /**
+   * The badge's criteria to get certified.
+   */
+  criteria: string;
+}
+
+export interface createBadge_createBadge {
+  __typename: "CreateBadgePayload";
+  badge: createBadge_createBadge_badge | null;
+}
+
+export interface createBadge {
+  createBadge: createBadge_createBadge | null;
+}
+
+export interface createBadgeVariables {
+  input: CreateBadgeInput;
+}
+
+/* tslint:disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL mutation operation: createCertification
 // ====================================================
 
@@ -366,6 +426,17 @@ export enum CertificationState {
   CERTIFIED = "CERTIFIED",
   EXPIRED = "EXPIRED",
   REVOKED = "REVOKED",
+}
+
+export interface CreateBadgeInput {
+  name: string;
+  backgroundColor: any;
+  textColor: any;
+  imageUrl: any;
+  path: string;
+  description: string;
+  criteria: string;
+  clientMutationId?: string | null;
 }
 
 //==============================================================
