@@ -418,6 +418,34 @@ export interface getUsersCertificationsVariables {
 /* tslint:disable */
 // This file was automatically generated and should not be edited.
 
+// ====================================================
+// GraphQL mutation operation: revokeCertification
+// ====================================================
+
+export interface revokeCertification_revokeCertification_certification {
+  __typename: "Certification";
+  /**
+   * The ID of an object
+   */
+  id: string;
+}
+
+export interface revokeCertification_revokeCertification {
+  __typename: "RevokeCertificationPayload";
+  certification: revokeCertification_revokeCertification_certification | null;
+}
+
+export interface revokeCertification {
+  revokeCertification: revokeCertification_revokeCertification | null;
+}
+
+export interface revokeCertificationVariables {
+  certificationId: string;
+}
+
+/* tslint:disable */
+// This file was automatically generated and should not be edited.
+
 //==============================================================
 // START Enums and Input Objects
 //==============================================================

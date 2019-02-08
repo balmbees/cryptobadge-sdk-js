@@ -1,0 +1,7 @@
+mutation revokeCertification($certificationId: ID!) {
+  revokeCertification(input: { id: $certificationId }) {
+    certification {
+      id
+    }
+  }
+}
