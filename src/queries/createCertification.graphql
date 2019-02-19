@@ -19,6 +19,7 @@ mutation createCertification(
     certification {
       id
       winnerName
+      state
       badge {
         id
         name

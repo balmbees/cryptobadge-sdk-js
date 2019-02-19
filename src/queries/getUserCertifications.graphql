@@ -12,6 +12,7 @@ query getUserCertifications(
       node {
         id
         resourceUrl
+        state
 
         badge {
           id

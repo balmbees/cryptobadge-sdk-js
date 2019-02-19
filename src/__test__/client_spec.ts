@@ -57,6 +57,7 @@ describe(CryptobadgeClient.name, () => {
             },
             id: "Q2VydGlmaWNhdGU6MDAwMDAwMDAwMDAwMDAxMA==",
             resourceUrl: "https://cryptobadge.app/certifications/0000000000000010",
+            state: "CERTIFIED",
           }
         });
       });
