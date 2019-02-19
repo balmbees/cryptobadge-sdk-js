@@ -3,6 +3,7 @@ query getCertification($id: ID!) {
     ... on Certification {
       id
       resourceUrl
+      state
 
       badge {
         id

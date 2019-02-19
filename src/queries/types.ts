@@ -87,6 +87,10 @@ export interface createCertification_createCertification_certification {
    * The winner's name of the certification
    */
   winnerName: string;
+  /**
+   * Determines the state of the certification.
+   */
+  state: CertificationState;
   badge: createCertification_createCertification_certification_badge;
   /**
    * When the certification was issued.
@@ -100,10 +104,6 @@ export interface createCertification_createCertification_certification {
    * The evidence of certification
    */
   evidence: string;
-  /**
-   * Determines the state of the certification.
-   */
-  state: CertificationState;
 }
 
 export interface createCertification_createCertification {
@@ -225,6 +225,10 @@ export interface getCertification_certification_Certification {
    * The Http URL for the certification.
    */
   resourceUrl: any;
+  /**
+   * Determines the state of the certification.
+   */
+  state: CertificationState;
   badge: getCertification_certification_Certification_badge;
 }
 
@@ -282,6 +286,10 @@ export interface getUserCertifications_certifications_edges_node {
    * The Http URL for the certification.
    */
   resourceUrl: any;
+  /**
+   * Determines the state of the certification.
+   */
+  state: CertificationState;
   badge: getUserCertifications_certifications_edges_node_badge;
 }
 
