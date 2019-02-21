@@ -4,7 +4,6 @@ query getUserCertifications(
   certifications(
     first: $count,
     after: $after,
-    state: CERTIFIED,
     encryptedWinnerEmails: [$encryptedEmail]
   ) {
     totalCount
