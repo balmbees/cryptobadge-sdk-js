@@ -1,6 +1,6 @@
 {
   "name": "@vingle/cryptobadge-sdk",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "",
   "main": "./dst/index.js",
   "typings": "./dst/index.d.ts",
@@ -36,7 +36,7 @@
     "mocha": "5.2.0",
     "np": "3.1.0",
     "ts-node": "7.0.1",
-    "tslint": "5.12.1",
+    "tslint": "5.18.0",
     "typescript": "3.2.2"
   },
   "dependencies": {
