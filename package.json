@@ -1,6 +1,6 @@
 {
   "name": "@vingle/cryptobadge-sdk",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "",
   "main": "./dst/index.js",
   "typings": "./dst/index.d.ts",
@@ -28,7 +28,7 @@
     "@types/common-tags": "1.8.0",
     "@types/graphql": "14.0.4",
     "@types/mocha": "5.2.7",
-    "apollo": "2.1.9",
+    "apollo": "2.14.0",
     "chai": "4.2.0",
     "common-tags": "1.8.0",
     "graphql": "14.0.2",
