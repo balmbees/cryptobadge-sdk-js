@@ -27,7 +27,7 @@
     "@types/chai": "4.1.7",
     "@types/common-tags": "1.8.0",
     "@types/graphql": "14.0.4",
-    "@types/mocha": "5.2.5",
+    "@types/mocha": "5.2.7",
     "apollo": "2.1.9",
     "chai": "4.2.0",
     "common-tags": "1.8.0",
