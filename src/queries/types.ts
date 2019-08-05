@@ -1,4 +1,5 @@
 /* tslint:disable */
+/* eslint-disable */
 // This file was automatically generated and should not be edited.
 
 // ====================================================
@@ -59,6 +60,7 @@ export interface createBadgeVariables {
 }
 
 /* tslint:disable */
+/* eslint-disable */
 // This file was automatically generated and should not be edited.
 
 // ====================================================
@@ -125,6 +127,7 @@ export interface createCertificationVariables {
 }
 
 /* tslint:disable */
+/* eslint-disable */
 // This file was automatically generated and should not be edited.
 
 // ====================================================
@@ -177,6 +180,7 @@ export interface getBadgeVariables {
 }
 
 /* tslint:disable */
+/* eslint-disable */
 // This file was automatically generated and should not be edited.
 
 // ====================================================
@@ -246,6 +250,7 @@ export interface getCertificationVariables {
 }
 
 /* tslint:disable */
+/* eslint-disable */
 // This file was automatically generated and should not be edited.
 
 // ====================================================
@@ -337,12 +342,13 @@ export interface getUserCertifications {
 }
 
 export interface getUserCertificationsVariables {
-  count?: number | null;
+  count: number;
   after?: string | null;
   encryptedEmail: string;
 }
 
 /* tslint:disable */
+/* eslint-disable */
 // This file was automatically generated and should not be edited.
 
 // ====================================================
@@ -418,12 +424,13 @@ export interface getUsersCertifications {
 }
 
 export interface getUsersCertificationsVariables {
-  count?: number | null;
+  count: number;
   after?: string | null;
   encryptedEmails: string[];
 }
 
 /* tslint:disable */
+/* eslint-disable */
 // This file was automatically generated and should not be edited.
 
 // ====================================================
@@ -452,6 +459,7 @@ export interface revokeCertificationVariables {
 }
 
 /* tslint:disable */
+/* eslint-disable */
 // This file was automatically generated and should not be edited.
 
 //==============================================================
