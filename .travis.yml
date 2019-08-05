@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+- lts/*
+jobs:
+  include:
+  - stage: release
+    node_js: lts/carbon
+    deploy:
+      provider: script
+      skip_cleanup: true
+      script:
+      - npx semantic-release
+env:
+  global:
+  - secure: B2ThkNb/PXi05WjbzYXATRZZk/ZlCx2SWxt4d4dz1D68Bsoxp/LL2k6vipS6APKkP7S9J/goq34XIirJFxEzoOT72UxxdStVyX+lEKbv7+0Nj9vH3Xk6qDZ+PIBNRa+jYGwnwpl22qjHnOMPkPpBPQyqSrhIxBX9VqS1XS7d6Kl0tUVktau2cDnmpGtX1XL6c1R91tkw63rzd877qn0dMLWVIcHpUaw0K+pr1Ta52PDV9BviRmNzy7r1RskaZzk3O9X71d1+FjpySZOpNBkORp5IZ1zoFfgu/dfpuHbjkcRLx/+dBlTsGrAK48hf9DhcaE5OrTnbayiLHtntA1iET8jFwtpOIaOmQ1AQePJ+/pa1FNRWX9V5HYT6UjlbyIOkSlz/2Pb0h/aLa0uQtvs56kahjXBp3XrCzY2f9zMpef7HgNhfRLEjLcMZ7gbVxX7P6Uue5F+msFa0YMoLidBhih9rGcgQr4Hz6AbE2Y/YggWPaAbBfgUuK1Z3W3C3CYjcbvy0zzkG0tLd4yTNE/K+AkHSnuo16VUMRrzsvRfdM1+z08vH2zMHDIHjifwTvsIJgkPPrbQWg9FknhBKh5InRg1u945yF5WPUiwoJRbnxjVXJeEdoHQlfcXzFUzGYNapt6mXKqVt27V+/Nppg9n+jrTs1hQWL9VVC/EYM3Z8PVU=
+  - secure: Pm1lGg8wpM05IRNTA0KcHO4cIPb14/MB0hIwK0biB/PSaE59RhQi65BVTVaaHFDOkVVLAgG44fK8WB3u9GNmnBapx5GPJXyXPwCBjcdB1YX5byv74bai85eBY0rOiQ4tnBSIgOb2B4lhjfP0UA5i4nHu0ztbJdYVUea9awoNNB6iWw/Vl7MI9UyvSdlmtdkifpwTt1o1b3Vo2nDkMeRnKeYuBWRhvBzahJxQlHNTGlACccmHZQyyhb1AXQnyeneCRSxT5+IsI8bskcKIWF4xhxFKdfHIXb5B9lhHQJ5c1Ji2hJKn3+E2GgTcB95D9oQSWm3QGcnkz2iPxImWFgAWA5jhj2BsI+QwyxdsPlBMBXPBplI3TkxDpG7u75Wlnp3MzYK7tMcf19SMrCYiVTC0X9R9RddmF/FCIuxlgVDq1o+KQpIHcb1DHZxDLcUHoqy/fppu2JpD+RdrdMnglGulBoEBhaiiE/qlZMnJvVjCEtY3CH7FsumL9Gj0/5qMa80AztRROHW9JtR3nn73xVumOEjIloxLdbKqVprkA4/1KvF+rriy+/n3nTLW4NRGUnkg9Tm7pZQL3mDtC/Sg5Qy9/sHiflPtrFW0Y0QmDmEM6Nf3t6ZEom7BXNymiG1Incn61Bjgf2JzxslMMOhNDnFdA2wJ0HRJNJ5RqboySvJAA6E=
