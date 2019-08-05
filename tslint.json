@@ -1,12 +1,3 @@
 {
-    "defaultSeverity": "error",
-    "extends": [
-        "tslint:recommended"
-    ],
-    "jsRules": {},
-    "rules": {
-        "object-literal-sort-keys": false,
-        "trailing-comma": false
-    },
-    "rulesDirectory": []
+    "extends": ["@vingle/tslint-preset"]
 }
