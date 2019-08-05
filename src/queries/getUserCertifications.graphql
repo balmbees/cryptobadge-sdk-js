@@ -1,5 +1,5 @@
 query getUserCertifications(
-  $count: Int, $after: String, $encryptedEmail: String!
+  $count: Int!, $after: String, $encryptedEmail: String!
 ) {
   certifications(
     first: $count,

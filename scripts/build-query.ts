@@ -32,14 +32,14 @@ async function main() {
           public async ${queryName}(variables: Types.${queryName}Variables) {
             return await this.queryClient.mutate<Types.${queryName}>({ mutation: this.${queryName}Gql, variables });
           }
-            `;
+`;
                 } else {
                   return `
           private ${queryName}Gql = ${JSON.stringify(gqlTag)} as any;
           public async ${queryName}() {
             return await this.queryClient.mutate<Types.${queryName}>({ mutation: this.${queryName}Gql });
           }
-            `;
+`;
                 }
               })()
             );
@@ -56,14 +56,14 @@ async function main() {
           public async ${queryName}(variables: Types.${queryName}Variables) {
             return await this.queryClient.query<Types.${queryName}>({ query: this.${queryName}Gql, variables });
           }
-            `;
+`;
                 } else {
                   return `
           private ${queryName}Gql = ${JSON.stringify(gqlTag)} as any;
           public async ${queryName}() {
             return await this.queryClient.query<Types.${queryName}>({ query: this.${queryName}Gql });
           }
-            `;
+`;
                 }
               })()
             );
