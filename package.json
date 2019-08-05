@@ -36,7 +36,6 @@
     "graphql": "14.4.2",
     "graphql-tag": "2.10.1",
     "mocha": "6.2.0",
-    "np": "3.1.0",
     "ts-node": "8.3.0",
     "tslint": "5.18.0",
     "typescript": "3.5.3"
