@@ -29,12 +29,14 @@
     "@types/graphql": "14.2.3",
     "@types/mocha": "5.2.7",
     "@types/node-fetch": "2.5.0",
+    "@vingle/commitlint-preset": "1.0.2",
     "@vingle/tslint-preset": "1.0.0",
     "apollo": "2.16.3",
     "chai": "4.2.0",
     "common-tags": "1.8.0",
     "graphql": "14.4.2",
     "graphql-tag": "2.10.1",
+    "husky": "3.0.2",
     "mocha": "6.2.0",
     "ts-node": "8.3.0",
     "tslint": "5.18.0",
@@ -45,5 +47,20 @@
     "apollo-client": "^2.6.3",
     "apollo-link-http": "^1.5.15",
     "node-fetch": "^2.6.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@vingle/commitlint-preset"
+    ]
   }
 }
