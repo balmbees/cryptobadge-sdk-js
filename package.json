@@ -32,7 +32,7 @@
     "@vingle/commitlint-preset": "1.0.3",
     "@vingle/semantic-release-config": "1.0.3",
     "@vingle/tslint-preset": "1.0.0",
-    "apollo": "2.18.2",
+    "apollo": "2.18.3",
     "chai": "4.2.0",
     "common-tags": "1.8.0",
     "graphql": "14.5.5",
