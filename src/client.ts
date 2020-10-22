@@ -7,7 +7,8 @@ import fetch from "node-fetch";
 import { Queries } from "./queries";
 
 export class CryptobadgeClient extends Queries<NormalizedCacheObject> {
-  private apolloClient: ApolloClient<NormalizedCacheObject>;
+  private _queryClient: ApolloClient<NormalizedCacheObject>;
+  private _mutationClient: ApolloClient<NormalizedCacheObject>;
 
   private url: string;
   private accessToken: string;
@@ -37,20 +38,36 @@ export class CryptobadgeClient extends Queries<NormalizedCacheObject> {
       headers["X-CryptoBadge-Authorization"] = this.authorizationKey;
     }
 
-    const httpLink = createHttpLink({
+    const getHttpLink = createHttpLink({
+      fetch: fetch as any,
+      headers,
+      uri: this.url,
+      useGETForQueries: true,
+    });
+
+    const postHttpLink = createHttpLink({
       fetch: fetch as any,
       headers,
       uri: this.url,
     });
 
-    this.apolloClient = new ApolloClient({
+    this._queryClient = new ApolloClient({
       cache: new InMemoryCache(),
-      link: httpLink,
+      link: getHttpLink,
+    });
+
+    this._mutationClient = new ApolloClient({
+      cache: new InMemoryCache(),
+      link: postHttpLink,
     });
   }
 
   get queryClient() {
-    return this.apolloClient;
+    return this._queryClient;
+  }
+
+  get mutationClient() {
+    return this._mutationClient;
   }
 
   public encryptEmail(email: string) {
