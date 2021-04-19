@@ -10,7 +10,7 @@
     "build": "rm -Rf dst && tsc -d",
     "lint": "tslint -p tsconfig.test.json",
     "prepublish": "npm run build",
-    "generate": "apollo codegen:generate --target typescript --outputFlat --globalTypesFile=./src/__generated__/global.ts ./src/queries/types.ts && ts-node ./scripts/build-query.ts"
+    "generate": "apollo codegen:generate --localSchemaFile=./schema.json --target typescript --outputFlat --globalTypesFile=./src/__generated__/global.ts ./src/queries/types.ts && ts-node ./scripts/build-query.ts"
   },
   "repository": {
     "type": "git",

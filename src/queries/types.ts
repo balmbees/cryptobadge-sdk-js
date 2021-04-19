@@ -1,6 +1,5 @@
 /* tslint:disable */
 /* eslint-disable */
-// @generated
 // This file was automatically generated and should not be edited.
 
 // ====================================================
@@ -62,7 +61,6 @@ export interface createBadgeVariables {
 
 /* tslint:disable */
 /* eslint-disable */
-// @generated
 // This file was automatically generated and should not be edited.
 
 // ====================================================
@@ -130,7 +128,6 @@ export interface createCertificationVariables {
 
 /* tslint:disable */
 /* eslint-disable */
-// @generated
 // This file was automatically generated and should not be edited.
 
 // ====================================================
@@ -184,7 +181,66 @@ export interface getBadgeVariables {
 
 /* tslint:disable */
 /* eslint-disable */
-// @generated
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL query operation: getBadgeByIssuerAndPath
+// ====================================================
+
+export interface getBadgeByIssuerAndPath_badge {
+  __typename: "Badge";
+  /**
+   * The ID of an object
+   */
+  id: string;
+  /**
+   * The name of the badge
+   */
+  name: string;
+  /**
+   * The path for the badge.
+   */
+  path: string;
+  /**
+   * A URI pointing to the badge's image.
+   */
+  imageUrl: any;
+  /**
+   * The badge's description.
+   */
+  description: string;
+  /**
+   * The badge's criteria to get certified.
+   */
+  criteria: string;
+  /**
+   * A RGB hexadecimal notation for the background color of the badge
+   */
+  backgroundColor: any;
+  /**
+   * A RGB hexadecimal notation for the text color of the badge
+   */
+  textColor: any;
+  /**
+   * The status of the latest transaction
+   */
+  transactionStatus: TransactionStatus;
+}
+
+export interface getBadgeByIssuerAndPath {
+  /**
+   * Find a given badge by the badge issuer and badge path
+   */
+  badge: getBadgeByIssuerAndPath_badge | null;
+}
+
+export interface getBadgeByIssuerAndPathVariables {
+  issuer: string;
+  path: string;
+}
+
+/* tslint:disable */
+/* eslint-disable */
 // This file was automatically generated and should not be edited.
 
 // ====================================================
@@ -287,7 +343,6 @@ export interface getBadgesVariables {
 
 /* tslint:disable */
 /* eslint-disable */
-// @generated
 // This file was automatically generated and should not be edited.
 
 // ====================================================
@@ -358,7 +413,6 @@ export interface getCertificationVariables {
 
 /* tslint:disable */
 /* eslint-disable */
-// @generated
 // This file was automatically generated and should not be edited.
 
 // ====================================================
@@ -457,7 +511,6 @@ export interface getUserCertificationsVariables {
 
 /* tslint:disable */
 /* eslint-disable */
-// @generated
 // This file was automatically generated and should not be edited.
 
 // ====================================================
@@ -540,7 +593,6 @@ export interface getUsersCertificationsVariables {
 
 /* tslint:disable */
 /* eslint-disable */
-// @generated
 // This file was automatically generated and should not be edited.
 
 // ====================================================
@@ -570,7 +622,6 @@ export interface revokeCertificationVariables {
 
 /* tslint:disable */
 /* eslint-disable */
-// @generated
 // This file was automatically generated and should not be edited.
 
 //==============================================================
@@ -581,6 +632,15 @@ export enum CertificationState {
   CERTIFIED = "CERTIFIED",
   EXPIRED = "EXPIRED",
   REVOKED = "REVOKED",
+}
+
+/**
+ * A status of objects available on the smart contract
+ */
+export enum TransactionStatus {
+  APPROVING = "APPROVING",
+  CONFIRMED = "CONFIRMED",
+  CONFIRMING = "CONFIRMING",
 }
 
 export interface CreateBadgeInput {
