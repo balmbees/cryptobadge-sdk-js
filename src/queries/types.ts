@@ -134,8 +134,8 @@ export interface createCertificationVariables {
 // GraphQL query operation: getBadge
 // ====================================================
 
-export interface getBadge_badge_Certification {
-  __typename: "Certification";
+export interface getBadge_badge_User {
+  __typename: "User" | "Certification" | "Issuer";
 }
 
 export interface getBadge_badge_Badge {
@@ -166,7 +166,7 @@ export interface getBadge_badge_Badge {
   creatorName: string;
 }
 
-export type getBadge_badge = getBadge_badge_Certification | getBadge_badge_Badge;
+export type getBadge_badge = getBadge_badge_User | getBadge_badge_Badge;
 
 export interface getBadge {
   /**
@@ -184,11 +184,173 @@ export interface getBadgeVariables {
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL query operation: getBadgeByIssuerAndPath
+// ====================================================
+
+export interface getBadgeByIssuerAndPath_badge {
+  __typename: "Badge";
+  /**
+   * The ID of an object
+   */
+  id: string;
+  /**
+   * The name of the badge
+   */
+  name: string;
+  /**
+   * The path for the badge.
+   */
+  path: string;
+  /**
+   * A URI pointing to the badge's image.
+   */
+  imageUrl: any;
+  /**
+   * The badge's description.
+   */
+  description: string;
+  /**
+   * The badge's criteria to get certified.
+   */
+  criteria: string;
+  /**
+   * A RGB hexadecimal notation for the background color of the badge
+   */
+  backgroundColor: any;
+  /**
+   * A RGB hexadecimal notation for the text color of the badge
+   */
+  textColor: any;
+  /**
+   * The status of the latest transaction
+   */
+  transactionStatus: TransactionStatus;
+}
+
+export interface getBadgeByIssuerAndPath {
+  /**
+   * Find a given badge by the badge issuer and badge path
+   */
+  badge: getBadgeByIssuerAndPath_badge | null;
+}
+
+export interface getBadgeByIssuerAndPathVariables {
+  issuer: string;
+  path: string;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL query operation: getBadges
+// ====================================================
+
+export interface getBadges_badges_edges_node_issuer {
+  __typename: "Issuer";
+  /**
+   * The ID of an object
+   */
+  id: string;
+}
+
+export interface getBadges_badges_edges_node {
+  __typename: "Badge";
+  /**
+   * The ID of an object
+   */
+  id: string;
+  /**
+   * The name of the badge
+   */
+  name: string;
+  /**
+   * The badge's description.
+   */
+  description: string;
+  /**
+   * A RGB hexadecimal notation for the background color of the badge
+   */
+  backgroundColor: any;
+  /**
+   * A RGB hexadecimal notation for the text color of the badge
+   */
+  textColor: any;
+  /**
+   * A URI pointing to the badge's image.
+   */
+  imageUrl: any;
+  /**
+   * The path for the badge.
+   */
+  path: string;
+  /**
+   * The badge's criteria to get certified.
+   */
+  criteria: string;
+  issuer: getBadges_badges_edges_node_issuer;
+  /**
+   * The creator name of the badge
+   */
+  creatorName: string;
+}
+
+export interface getBadges_badges_edges {
+  __typename: "BadgeEdge";
+  /**
+   * The item at the end of the edge
+   */
+  node: getBadges_badges_edges_node | null;
+}
+
+export interface getBadges_badges_pageInfo {
+  __typename: "PageInfo";
+  /**
+   * When paginating forwards, are there more items?
+   */
+  hasNextPage: boolean;
+  /**
+   * When paginating forwards, the cursor to continue.
+   */
+  endCursor: string | null;
+}
+
+export interface getBadges_badges {
+  __typename: "BadgeConnection";
+  /**
+   * A list of edges.
+   */
+  edges: (getBadges_badges_edges | null)[] | null;
+  /**
+   * Information to aid in pagination.
+   */
+  pageInfo: getBadges_badges_pageInfo;
+}
+
+export interface getBadges {
+  /**
+   * Find badges of a given community account
+   */
+  badges: getBadges_badges | null;
+}
+
+export interface getBadgesVariables {
+  count: number;
+  after?: string | null;
+  communityAccount: string;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL query operation: getCertification
 // ====================================================
 
-export interface getCertification_certification_Badge {
-  __typename: "Badge";
+export interface getCertification_certification_User {
+  __typename: "User" | "Badge" | "Issuer";
 }
 
 export interface getCertification_certification_Certification_badge {
@@ -236,7 +398,7 @@ export interface getCertification_certification_Certification {
   badge: getCertification_certification_Certification_badge;
 }
 
-export type getCertification_certification = getCertification_certification_Badge | getCertification_certification_Certification;
+export type getCertification_certification = getCertification_certification_User | getCertification_certification_Certification;
 
 export interface getCertification {
   /**
@@ -472,14 +634,28 @@ export enum CertificationState {
   REVOKED = "REVOKED",
 }
 
+/**
+ * A status of objects available on the smart contract
+ */
+export enum TransactionStatus {
+  APPROVING = "APPROVING",
+  CONFIRMED = "CONFIRMED",
+  CONFIRMING = "CONFIRMING",
+}
+
 export interface CreateBadgeInput {
   name: string;
   backgroundColor: any;
   textColor: any;
   imageUrl: any;
+  revokedImageUrl?: any | null;
+  expiredImageUrl?: any | null;
   path: string;
   description: string;
   criteria: string;
+  tagNames?: (string | null)[] | null;
+  communityAccount?: string | null;
+  ttl?: number | null;
   clientMutationId?: string | null;
 }
 

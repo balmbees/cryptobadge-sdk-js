@@ -1,0 +1,13 @@
+query getBadgeByIssuerAndPath($issuer: String!, $path: String!) {
+  badge(issuer: $issuer, path: $path) {
+    id
+    name
+    path
+    imageUrl
+    description
+    criteria
+    backgroundColor
+    textColor
+    transactionStatus
+  }
+}

@@ -1,0 +1,24 @@
+name: deploy
+on: push
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    container: node:12
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v1
+      - name: Setup
+        run: |
+          apt-get update
+          apt-get install -y zip
+      - name: Prepare
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
+          npm ci
+      - name: Test
+        run: npm test
+      - name: Deploy
+        if: github.ref == 'refs/heads/master'
+        run: npm run publish
