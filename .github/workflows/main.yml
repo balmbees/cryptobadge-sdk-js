@@ -21,4 +21,4 @@ jobs:
         run: npm test
       - name: Deploy
         if: github.ref == 'refs/heads/master'
-        run: npm run publish
+        run: npm publish
