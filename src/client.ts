@@ -63,6 +63,7 @@ export class CryptobadgeClient extends Queries<NormalizedCacheObject> {
   }
 
   get queryClient() {
+    if (process.env.STAGE === "test") return this._mutationClient;
     return this._queryClient;
   }
 
