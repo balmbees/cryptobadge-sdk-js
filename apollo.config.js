@@ -2,10 +2,10 @@ module.exports = {
   client: {
     service: {
       name: 'cryptobadge',
-      url: "https://api.sandbox.cryptobadge.app/graphql",
+      url: "https://api.cryptobadge.app/graphql",
       // optional headers
       headers: {
-        "open-api-access-token": "e14iZBK0JxUAygKd",
+        "X-CryptoBadge-Access-Token": "JpmaPl3pCq1NfyIUl3GTY",
       },
     },
   },
