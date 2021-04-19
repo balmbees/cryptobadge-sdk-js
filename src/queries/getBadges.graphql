@@ -1,0 +1,26 @@
+query getBadges(
+  $count: Int!, $after: String, $communityAccount: String!
+) {
+  badges(first: $count, after: $after, communityAccount: $communityAccount) {
+    edges {
+      node {
+        id
+        name
+        description
+        backgroundColor
+        textColor
+        imageUrl
+        path
+        criteria
+        issuer {
+          id
+        }
+        creatorName
+      }
+    }
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+  }
+}
