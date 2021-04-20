@@ -416,6 +416,30 @@ export interface getCertificationVariables {
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL mutation operation: getImageUploadUrl
+// ====================================================
+
+export interface getImageUploadUrl_signBadgeImageUploadUrl {
+  __typename: "SignBadgeImageUploadUrlPayload";
+  /**
+   * Signed S3 url to upload badge image
+   */
+  url: any | null;
+}
+
+export interface getImageUploadUrl {
+  signBadgeImageUploadUrl: getImageUploadUrl_signBadgeImageUploadUrl | null;
+}
+
+export interface getImageUploadUrlVariables {
+  input: SignBadgeImageUploadUrlInput;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL query operation: getUserCertifications
 // ====================================================
 
@@ -656,6 +680,12 @@ export interface CreateBadgeInput {
   tagNames?: (string | null)[] | null;
   communityAccount?: string | null;
   ttl?: number | null;
+  clientMutationId?: string | null;
+}
+
+export interface SignBadgeImageUploadUrlInput {
+  fileName: string;
+  contentType: string;
   clientMutationId?: string | null;
 }
 
