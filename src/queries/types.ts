@@ -398,7 +398,9 @@ export interface getCertification_certification_Certification {
   badge: getCertification_certification_Certification_badge;
 }
 
-export type getCertification_certification = getCertification_certification_User | getCertification_certification_Certification;
+export type getCertification_certification =
+  | getCertification_certification_User
+  | getCertification_certification_Certification;
 
 export interface getCertification {
   /**
@@ -533,6 +535,12 @@ export interface getUserCertificationsVariables {
   encryptedEmail: string;
 }
 
+export interface getUserCertificationsVariablesV2 {
+  count: number;
+  after?: string | null;
+  userId: string;
+}
+
 /* tslint:disable */
 /* eslint-disable */
 // This file was automatically generated and should not be edited.
@@ -613,6 +621,12 @@ export interface getUsersCertificationsVariables {
   count: number;
   after?: string | null;
   encryptedEmails: string[];
+}
+
+export interface getUsersCertificationsVariablesV2 {
+  count: number;
+  after?: string | null;
+  userIds: string[];
 }
 
 /* tslint:disable */

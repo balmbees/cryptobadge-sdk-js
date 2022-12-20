@@ -1,0 +1,28 @@
+query getUserCertifications($count: Int!, $after: String, $userId: String!) {
+  certifications(
+    first: $count
+    after: $after
+    encryptedWinnerEmails: [$userId]
+  ) {
+    totalCount
+    edges {
+      node {
+        id
+        resourceUrl
+        state
+
+        badge {
+          id
+          name
+          imageUrl
+          description
+          creatorName
+        }
+      }
+    }
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+  }
+}
