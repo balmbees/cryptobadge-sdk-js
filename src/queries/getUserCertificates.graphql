@@ -1,0 +1,19 @@
+query getUserCertificates($count: Int!, $after: String, $userId: String!) {
+  certificates(first: $count, after: $after, userId: $userId) {
+    totalCount
+    edges {
+      node {
+        id
+        resourceUrl
+        issuer
+        imageUri
+        name
+        description
+      }
+    }
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+  }
+}
