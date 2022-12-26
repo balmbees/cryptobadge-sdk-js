@@ -23,42 +23,26 @@ describe(CryptobadgeClient.name, () => {
       });
     });
 
-    describe("#getBadge", () => {
+    describe("#getUserCertificates", () => {
       it("should work", async () => {
-        const badge = await client.getBadge({ id: "QmFkZ2U6MDAwMDAwMDAwMDAwMDAyNw==" });
-        expect(badge.data).to.be.deep.eq({
-          badge: {
-            __typename: "Badge",
-            id: "QmFkZ2U6MDAwMDAwMDAwMDAwMDAyNw==",
-            creatorName: "Vingle",
-            description: "Vingle Test Badge",
-            imageUrl: "https://media.vingle.net/images/ca_l/2tkiaqg3uj.jpg",
-            name: "Vingle Test Badge",
-            resourceUrl: "https://cryptobadge.app/badges/vingle-test",
-          }
+        const badge = await client.getUserCertificates({
+          userId: "c224e1f4-1818-4b00-9f8f-f3a42f5244c0",
+          count: 30,
         });
-      });
-    });
-
-    describe("#getCertification", () => {
-      it("should work", async () => {
-        const badge = await client.getCertification({ id: "Q2VydGlmaWNhdGU6MDAwMDAwMDAwMDAwMDAxMA==" });
         expect(badge.data).to.be.deep.eq({
           certification: {
             __typename: "Certification",
             badge: {
               __typename: "Badge",
-              creatorName: "lecle",
-              description: "Description",
-              id: "QmFkZ2U6MDAwMDAwMDAwMDAwMDAyOA==",
-              imageUrl: "https://dummyimage.com/600x600/000/fff",
-              resourceUrl: "https://cryptobadge.app/badges/tw3q1201-3a01-412a-90fa-w256e9b2fdq7black",
+              id: "Q2VydGlmaWNhdGU6MDAwMDAwMDAwMDAwMDAxMA==",
+              resourceUrl:
+                "https://cryptobadge.app/certifications/0000000000000010",
+              issuer: "lecle",
+              imageUri: "https://dummyimage.com/600x600/000/fff",
               name: "Test Badge",
+              description: "Description",
             },
-            id: "Q2VydGlmaWNhdGU6MDAwMDAwMDAwMDAwMDAxMA==",
-            resourceUrl: "https://cryptobadge.app/certifications/0000000000000010",
-            state: "CERTIFIED",
-          }
+          },
         });
       });
     });
