@@ -3,11 +3,7 @@ query getUsersCertifications(
   $after: String
   $userIds: [String!]!
 ) {
-  certifications(
-    first: $count
-    after: $after
-    encryptedWinnerEmails: $userIds
-  ) {
+  certifications(first: $count, after: $after, userIds: $userIds) {
     edges {
       node {
         id
