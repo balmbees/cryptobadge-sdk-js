@@ -33,9 +33,11 @@ describe(CryptobadgeClient.name, () => {
         });
         expect(badge.data).to.be.deep.eq({
           certificates: {
+            __typename: "CertificateConnection",
             totalCount: 2,
             edges: [
               {
+                __typename: "CertificateEdge",
                 node: {
                   id: "0000000000028348",
                   resourceUrl:
@@ -47,6 +49,7 @@ describe(CryptobadgeClient.name, () => {
                 },
               },
               {
+                __typename: "CertificateEdge",
                 node: {
                   id: "0000000000011386",
                   resourceUrl:
@@ -61,6 +64,7 @@ describe(CryptobadgeClient.name, () => {
               },
             ],
             pageInfo: {
+              __typename: "PageInfo",
               hasNextPage: false,
               endCursor: "YXJyYXljb25uZWN0aW9uOjE=",
             },
