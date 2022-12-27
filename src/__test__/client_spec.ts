@@ -6,7 +6,7 @@ describe(CryptobadgeClient.name, () => {
   describe("constructor", () => {
     it("should work without secret token", () => {
       const client = new CryptobadgeClient({
-        url: "https://api.sandbox.cryptobadge.app/graphql",
+        url: "https://api.cryptobadge.xyz/api",
         accessToken: "e14iZBK0JxUAygKd",
       });
       expect(client).to.be.instanceOf(CryptobadgeClient);
@@ -18,7 +18,7 @@ describe(CryptobadgeClient.name, () => {
 
     beforeEach(() => {
       client = new CryptobadgeClient({
-        url: "https://api.sandbox.cryptobadge.app/graphql",
+        url: "https://api.cryptobadge.xyz/api",
         accessToken: "e14iZBK0JxUAygKd",
       });
     });
