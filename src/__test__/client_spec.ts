@@ -7,7 +7,8 @@ describe(CryptobadgeClient.name, () => {
     it("should work without secret token", () => {
       const client = new CryptobadgeClient({
         url: "https://api.cryptobadge.xyz/api",
-        accessToken: "e14iZBK0JxUAygKd",
+        accessToken: "58qxzRGlNre0SgV76LRGNZ4FjO1T",
+        authorizationKey: "lCY/MgfbG/xaghiJHuMtW8cypgSVBHfZlyMOFwlBmzo=",
       });
       expect(client).to.be.instanceOf(CryptobadgeClient);
     });
@@ -19,7 +20,8 @@ describe(CryptobadgeClient.name, () => {
     beforeEach(() => {
       client = new CryptobadgeClient({
         url: "https://api.cryptobadge.xyz/api",
-        accessToken: "e14iZBK0JxUAygKd",
+        accessToken: "58qxzRGlNre0SgV76LRGNZ4FjO1T",
+        authorizationKey: "lCY/MgfbG/xaghiJHuMtW8cypgSVBHfZlyMOFwlBmzo=",
       });
     });
 
