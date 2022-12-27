@@ -14,36 +14,38 @@ export class CryptobadgeClient extends Queries<NormalizedCacheObject> {
   private accessToken: string;
   private authorizationKey: string | null;
 
-  constructor(options: {
-    url?: string,
-    accessToken?: string,
-    authorizationKey?: string,
-  } = {}) {
+  constructor(
+    options: {
+      url?: string;
+      accessToken?: string;
+      authorizationKey?: string;
+    } = {}
+  ) {
     super();
 
-    this.url = options.url || process.env.CRYPTOBADGE_API_URL || "https://api.cryptobadge.app/graphql";
+    this.url =
+      options.url ||
+      process.env.CRYPTOBADGE_API_URL ||
+      "https://api.cryptobadge.xyz/api";
     this.accessToken = (() => {
-      const accessToken = options.accessToken || process.env.CRYPTOBADGE_ACCESS_TOKEN;
+      const accessToken =
+        options.accessToken || process.env.CRYPTOBADGE_ACCESS_TOKEN;
       if (!accessToken) {
         throw new Error("CRYPTOBADGE_ACCESS_TOKEN is required");
       }
       return accessToken;
     })();
-    this.authorizationKey = options.authorizationKey || process.env.CRYPTOBADGE_AUTHORIZATION_KEY || null;
+    this.authorizationKey =
+      options.authorizationKey ||
+      process.env.CRYPTOBADGE_AUTHORIZATION_KEY ||
+      null;
 
     const headers: { [key: string]: string } = {
-      "X-CryptoBadge-Access-Token": this.accessToken
+      "x-cryptobadge-access-token": this.accessToken,
     };
     if (this.authorizationKey) {
-      headers["X-CryptoBadge-Authorization"] = this.authorizationKey;
+      headers["x-cryptobadge-authorization"] = this.authorizationKey;
     }
-
-    const getHttpLink = createHttpLink({
-      fetch: fetch as any,
-      headers,
-      uri: this.url,
-      useGETForQueries: true,
-    });
 
     const postHttpLink = createHttpLink({
       fetch: fetch as any,
@@ -53,7 +55,7 @@ export class CryptobadgeClient extends Queries<NormalizedCacheObject> {
 
     this._queryClient = new ApolloClient({
       cache: new InMemoryCache(),
-      link: getHttpLink,
+      link: postHttpLink,
     });
 
     this._mutationClient = new ApolloClient({
@@ -76,8 +78,13 @@ export class CryptobadgeClient extends Queries<NormalizedCacheObject> {
       throw new Error("CRYPTOBADGE_SECRET_KEY is required");
     }
 
-    const cipher = Crypto.createCipheriv("aes-256-cbc", this.authorizationKey, Buffer.alloc(16));
-    const encryptedMsg = cipher.update(email, "utf8", "base64") + cipher.final("base64");
+    const cipher = Crypto.createCipheriv(
+      "aes-256-cbc",
+      this.authorizationKey,
+      Buffer.alloc(16)
+    );
+    const encryptedMsg =
+      cipher.update(email, "utf8", "base64") + cipher.final("base64");
     return encryptedMsg.toString();
   }
 }

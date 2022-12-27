@@ -1,5 +1,0 @@
-mutation getImageUploadUrl($input: SignBadgeImageUploadUrlInput!) {
-  signBadgeImageUploadUrl(input: $input) {
-    url
-  }
-}

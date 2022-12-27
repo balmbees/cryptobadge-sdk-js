@@ -6,8 +6,9 @@ describe(CryptobadgeClient.name, () => {
   describe("constructor", () => {
     it("should work without secret token", () => {
       const client = new CryptobadgeClient({
-        url: "https://api.sandbox.cryptobadge.app/graphql",
-        accessToken: "e14iZBK0JxUAygKd",
+        url: "https://api.cryptobadge.xyz/api",
+        accessToken: "58qxzRGlNre0SgV76LRGNZ4FjO1T",
+        authorizationKey: "lCY/MgfbG/xaghiJHuMtW8cypgSVBHfZlyMOFwlBmzo=",
       });
       expect(client).to.be.instanceOf(CryptobadgeClient);
     });
@@ -18,47 +19,59 @@ describe(CryptobadgeClient.name, () => {
 
     beforeEach(() => {
       client = new CryptobadgeClient({
-        url: "https://api.sandbox.cryptobadge.app/graphql",
-        accessToken: "e14iZBK0JxUAygKd",
+        url: "https://api.cryptobadge.xyz/api",
+        accessToken: "58qxzRGlNre0SgV76LRGNZ4FjO1T",
+        authorizationKey: "lCY/MgfbG/xaghiJHuMtW8cypgSVBHfZlyMOFwlBmzo=",
       });
     });
 
-    describe("#getBadge", () => {
+    describe("#getUserCertificates", () => {
       it("should work", async () => {
-        const badge = await client.getBadge({ id: "QmFkZ2U6MDAwMDAwMDAwMDAwMDAyNw==" });
-        expect(badge.data).to.be.deep.eq({
-          badge: {
-            __typename: "Badge",
-            id: "QmFkZ2U6MDAwMDAwMDAwMDAwMDAyNw==",
-            creatorName: "Vingle",
-            description: "Vingle Test Badge",
-            imageUrl: "https://media.vingle.net/images/ca_l/2tkiaqg3uj.jpg",
-            name: "Vingle Test Badge",
-            resourceUrl: "https://cryptobadge.app/badges/vingle-test",
-          }
+        const badge = await client.getUserCertificates({
+          userId: "VXNlcjpjMjI0ZTFmNC0xODE4LTRiMDAtOWY4Zi1mM2E0MmY1MjQ0YzA",
+          count: 20,
         });
-      });
-    });
-
-    describe("#getCertification", () => {
-      it("should work", async () => {
-        const badge = await client.getCertification({ id: "Q2VydGlmaWNhdGU6MDAwMDAwMDAwMDAwMDAxMA==" });
         expect(badge.data).to.be.deep.eq({
-          certification: {
-            __typename: "Certification",
-            badge: {
-              __typename: "Badge",
-              creatorName: "lecle",
-              description: "Description",
-              id: "QmFkZ2U6MDAwMDAwMDAwMDAwMDAyOA==",
-              imageUrl: "https://dummyimage.com/600x600/000/fff",
-              resourceUrl: "https://cryptobadge.app/badges/tw3q1201-3a01-412a-90fa-w256e9b2fdq7black",
-              name: "Test Badge",
+          certificates: {
+            __typename: "CertificateConnection",
+            totalCount: 2,
+            edges: [
+              {
+                __typename: "CertificateEdge",
+                node: {
+                  __typename: "Certificate",
+                  id: "0000000000028348",
+                  resourceUrl:
+                    "https://cryptobadge.xyz/@Vake/periodclub/0000000000028348",
+                  issuer: "4392c02f-b437-4e8a-98ea-a60e449aefe9",
+                  imageUri: "https://ca.group-edge.net/i/vake-badge-periodclub",
+                  name: "월간언니",
+                  description:
+                    "2021년 '월간언니' 액션을 통해 가정 밖 청소년들에게 월경생활키트를 선물하고 건강한 월경생활을 위해 커뮤니티 활동에 참여하신 '월간언니' 클럽멤버들에게 드리는 기념배지입니다.",
+                },
+              },
+              {
+                __typename: "CertificateEdge",
+                node: {
+                  __typename: "Certificate",
+                  id: "0000000000011386",
+                  resourceUrl:
+                    "https://cryptobadge.xyz/@CryptoBadge/Terran/0000000000011386",
+                  issuer: "CryptoBadge",
+                  imageUri:
+                    "https://s3-us-west-2.amazonaws.com/crypto-badge-static-prod/assets/badge-imgs/Terran_1000.png",
+                  name: "Terran",
+                  description:
+                    "Terran Badge is the symbol of citizenship in the CryptoBadge Network. A Citizenship Number is automatically granted based on order of registration. This badge proves that the winner is a human who has a CryptoBadge account.",
+                },
+              },
+            ],
+            pageInfo: {
+              __typename: "PageInfo",
+              hasNextPage: false,
+              endCursor: "YXJyYXljb25uZWN0aW9uOjE=",
             },
-            id: "Q2VydGlmaWNhdGU6MDAwMDAwMDAwMDAwMDAxMA==",
-            resourceUrl: "https://cryptobadge.app/certifications/0000000000000010",
-            state: "CERTIFIED",
-          }
+          },
         });
       });
     });
