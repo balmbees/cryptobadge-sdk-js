@@ -39,25 +39,28 @@ describe(CryptobadgeClient.name, () => {
               {
                 __typename: "CertificateEdge",
                 node: {
+                  __typename: "Certificate",
                   id: "0000000000028348",
                   resourceUrl:
                     "https://cryptobadge.xyz/@Vake/periodclub/0000000000028348",
                   issuer: "4392c02f-b437-4e8a-98ea-a60e449aefe9",
                   imageUri: "https://ca.group-edge.net/i/vake-badge-periodclub",
-                  name: null,
-                  description: null,
+                  name: "월간언니",
+                  description:
+                    "2021년 '월간언니' 액션을 통해 가정 밖 청소년들에게 월경생활키트를 선물하고 건강한 월경생활을 위해 커뮤니티 활동에 참여하신 '월간언니' 클럽멤버들에게 드리는 기념배지입니다.",
                 },
               },
               {
                 __typename: "CertificateEdge",
                 node: {
+                  __typename: "Certificate",
                   id: "0000000000011386",
                   resourceUrl:
                     "https://cryptobadge.xyz/@CryptoBadge/Terran/0000000000011386",
                   issuer: "CryptoBadge",
                   imageUri:
                     "https://s3-us-west-2.amazonaws.com/crypto-badge-static-prod/assets/badge-imgs/Terran_1000.png",
-                  name: null,
+                  name: "Terran",
                   description:
                     "Terran Badge is the symbol of citizenship in the CryptoBadge Network. A Citizenship Number is automatically granted based on order of registration. This badge proves that the winner is a human who has a CryptoBadge account.",
                 },
