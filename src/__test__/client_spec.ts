@@ -26,21 +26,41 @@ describe(CryptobadgeClient.name, () => {
     describe("#getUserCertificates", () => {
       it("should work", async () => {
         const badge = await client.getUserCertificates({
-          userId: "c224e1f4-1818-4b00-9f8f-f3a42f5244c0",
+          userId: "VXNlcjpjMjI0ZTFmNC0xODE4LTRiMDAtOWY4Zi1mM2E0MmY1MjQ0YzA",
           count: 20,
         });
         expect(badge.data).to.be.deep.eq({
-          certification: {
-            edges: {
-              node: {
-                id: "Q2VydGlmaWNhdGU6MDAwMDAwMDAwMDAwMDAxMA==",
-                resourceUrl:
-                  "https://cryptobadge.app/certifications/0000000000000010",
-                issuer: "lecle",
-                imageUri: "https://dummyimage.com/600x600/000/fff",
-                name: "Test Badge",
-                description: "Description",
+          certificates: {
+            totalCount: 2,
+            edges: [
+              {
+                node: {
+                  id: "0000000000028348",
+                  resourceUrl:
+                    "https://cryptobadge.xyz/@Vake/periodclub/0000000000028348",
+                  issuer: "4392c02f-b437-4e8a-98ea-a60e449aefe9",
+                  imageUri: "https://ca.group-edge.net/i/vake-badge-periodclub",
+                  name: null,
+                  description: null,
+                },
               },
+              {
+                node: {
+                  id: "0000000000011386",
+                  resourceUrl:
+                    "https://cryptobadge.xyz/@CryptoBadge/Terran/0000000000011386",
+                  issuer: "CryptoBadge",
+                  imageUri:
+                    "https://s3-us-west-2.amazonaws.com/crypto-badge-static-prod/assets/badge-imgs/Terran_1000.png",
+                  name: null,
+                  description:
+                    "Terran Badge is the symbol of citizenship in the CryptoBadge Network. A Citizenship Number is automatically granted based on order of registration. This badge proves that the winner is a human who has a CryptoBadge account.",
+                },
+              },
+            ],
+            pageInfo: {
+              hasNextPage: false,
+              endCursor: "YXJyYXljb25uZWN0aW9uOjE=",
             },
           },
         });
