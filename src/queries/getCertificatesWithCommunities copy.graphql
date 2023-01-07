@@ -1,0 +1,27 @@
+query getCertificatesWithCommunities(
+  $count: Int!
+  $after: String
+  $issuers: [String!]
+) {
+  certificatesWithCommunities: certificates(
+    first: $count
+    after: $after
+    issuers: $issuers
+  ) {
+    totalCount
+    edges {
+      node {
+        id
+        resourceUrl
+        issuer
+        imageUri
+        name
+        description
+      }
+    }
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+  }
+}
