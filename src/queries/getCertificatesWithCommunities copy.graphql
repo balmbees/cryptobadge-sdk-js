@@ -12,11 +12,15 @@ query getCertificatesWithCommunities(
     edges {
       node {
         id
+        animationUri
+        backgroundColor
+        claimable
         resourceUrl
         issuer
         imageUri
         name
         description
+        winner
       }
     }
     pageInfo {

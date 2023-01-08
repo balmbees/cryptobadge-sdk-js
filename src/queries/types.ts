@@ -10,6 +10,18 @@ export interface getCertificatesWithCommunities_certificatesWithCommunities_edge
   __typename: "Certificate";
   id: string;
   /**
+   * The animated version of certificate image url
+   */
+  animationUri: string | null;
+  /**
+   * Background color of the badge
+   */
+  backgroundColor: string | null;
+  /**
+   * Whether to be able to be claimed
+   */
+  claimable: boolean | null;
+  /**
    * ResourceUrl of certificate
    */
   resourceUrl: string | null;
@@ -29,6 +41,10 @@ export interface getCertificatesWithCommunities_certificatesWithCommunities_edge
    * Description of the certificate
    */
   description: string | null;
+  /**
+   * Winner of the certificate
+   */
+  winner: string | null;
 }
 
 export interface getCertificatesWithCommunities_certificatesWithCommunities_edges {
@@ -80,6 +96,18 @@ export interface getCertificatesWithoutCommunities_certificatesWithoutCommunitie
   __typename: "Certificate";
   id: string;
   /**
+   * The animated version of certificate image url
+   */
+  animationUri: string | null;
+  /**
+   * Background color of the badge
+   */
+  backgroundColor: string | null;
+  /**
+   * Whether to be able to be claimed
+   */
+  claimable: boolean | null;
+  /**
    * ResourceUrl of certificate
    */
   resourceUrl: string | null;
@@ -99,6 +127,10 @@ export interface getCertificatesWithoutCommunities_certificatesWithoutCommunitie
    * Description of the certificate
    */
   description: string | null;
+  /**
+   * Winner of the certificate
+   */
+  winner: string | null;
 }
 
 export interface getCertificatesWithoutCommunities_certificatesWithoutCommunities_edges {
