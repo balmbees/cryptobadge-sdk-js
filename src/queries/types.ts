@@ -45,6 +45,14 @@ export interface getCertificatesWithCommunities_certificatesWithCommunities_edge
    * Winner of the certificate
    */
   winner: string | null;
+  /**
+   * Evidence of the certificate
+   */
+  evidence: string | null;
+  /**
+   * State of the certificate
+   */
+  state: string | null;
 }
 
 export interface getCertificatesWithCommunities_certificatesWithCommunities_edges {
@@ -131,6 +139,14 @@ export interface getCertificatesWithoutCommunities_certificatesWithoutCommunitie
    * Winner of the certificate
    */
   winner: string | null;
+  /**
+   * Evidence of the certificate
+   */
+  evidence: string | null;
+  /**
+   * State of the certificate
+   */
+  state: string | null;
 }
 
 export interface getCertificatesWithoutCommunities_certificatesWithoutCommunities_edges {

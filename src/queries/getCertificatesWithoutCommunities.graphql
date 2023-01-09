@@ -21,6 +21,8 @@ query getCertificatesWithoutCommunities(
         name
         description
         winner
+        evidence
+        state
       }
     }
     pageInfo {
