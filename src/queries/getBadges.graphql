@@ -1,0 +1,52 @@
+query getBadges(
+	$before: String
+	$first: Int
+	$after: String
+	$last: Int
+	$name: String
+	$issuer: String
+	$chainId: Int
+	$claimable: Boolean
+) {
+	badges(
+		before: $before
+		first: $first
+		after: $after
+		last: $last
+		name: $name
+		issuer: $issuer
+		chainId: $chainId
+		claimable: $claimable
+	) {
+		edges {
+			node {
+				id
+				backgroundColor
+				certificateAnimationUri
+				certificateImageUri
+				claimable
+				criteria
+				description
+				issuer
+				metadataVersion
+				name
+				properties
+				tags
+				textColor
+				transferable
+				chainId
+				contract
+				metadataText
+				resourceUrl
+			}
+			cursor
+		}
+		pageInfo {
+			startCursor
+			endCursor
+			hasPreviousPage
+			hasNextPage
+		}
+		totalCount
+	}
+}
