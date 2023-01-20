@@ -3,6 +3,143 @@
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL query operation: getBadgeMintRequests
+// ====================================================
+
+export interface getBadgeMintRequests_badgeMintRequests_edges_node_badge {
+  __typename: "Badge";
+  id: string;
+  /**
+   * Background color of the badge
+   */
+  backgroundColor: string | null;
+  /**
+   * The animated version of certification image url
+   */
+  certificateAnimationUri: string | null;
+  /**
+   * The archetype of certification image url to be minted from the badge
+   */
+  certificateImageUri: string | null;
+  /**
+   * Whether to be able to be claimed
+   */
+  claimable: boolean | null;
+  /**
+   * Criteria of the badge: A narrative of what is needed to earn the badge.
+   */
+  criteria: string | null;
+  /**
+   * Description of the badge
+   */
+  description: string | null;
+  /**
+   * Issuer of the badge
+   */
+  issuer: string | null;
+  /**
+   * Metadata version
+   */
+  metadataVersion: number | null;
+  /**
+   * Badge Name
+   */
+  name: string | null;
+  /**
+   * Text color of the badge
+   */
+  textColor: string | null;
+  /**
+   * Whether to be able to be transferred
+   */
+  transferable: boolean | null;
+  /**
+   * Chain ID of Badge
+   */
+  chainId: number | null;
+  /**
+   * Contract of Badge
+   */
+  contract: string | null;
+  /**
+   * Metadata of Badge
+   */
+  metadataText: string | null;
+  /**
+   * resourceUrl of Badge
+   */
+  resourceUrl: string | null;
+}
+
+export interface getBadgeMintRequests_badgeMintRequests_edges_node {
+  __typename: "BadgeMintRequest";
+  id: string;
+  status: BadgeMintRequestStatus;
+  requestedAt: string;
+  issuerId: string | null;
+  transactionRequestId: string | null;
+  winnerId: string;
+  badge: getBadgeMintRequests_badgeMintRequests_edges_node_badge;
+  winnerAddress: string;
+}
+
+export interface getBadgeMintRequests_badgeMintRequests_edges {
+  __typename: "BadgeMintRequestEdge";
+  /**
+   * The item at the end of the edge.
+   */
+  node: getBadgeMintRequests_badgeMintRequests_edges_node;
+  /**
+   * A cursor for use in pagination.
+   */
+  cursor: string;
+}
+
+export interface getBadgeMintRequests_badgeMintRequests_pageInfo {
+  __typename: "PageInfo";
+  /**
+   * When paginating backwards, the cursor to continue.
+   */
+  startCursor: string | null;
+  /**
+   * When paginating forwards, the cursor to continue.
+   */
+  endCursor: string | null;
+  /**
+   * When paginating backwards, are there more items?
+   */
+  hasPreviousPage: boolean | null;
+  /**
+   * When paginating forwards, are there more items?
+   */
+  hasNextPage: boolean | null;
+}
+
+export interface getBadgeMintRequests_badgeMintRequests {
+  __typename: "BadgeMintRequestConnection";
+  edges: getBadgeMintRequests_badgeMintRequests_edges[] | null;
+  pageInfo: getBadgeMintRequests_badgeMintRequests_pageInfo;
+  totalCount: number;
+}
+
+export interface getBadgeMintRequests {
+  badgeMintRequests: getBadgeMintRequests_badgeMintRequests | null;
+}
+
+export interface getBadgeMintRequestsVariables {
+  before?: string | null;
+  first?: number | null;
+  after?: string | null;
+  last?: number | null;
+  issuers: string[];
+  status?: BadgeMintRequestStatus | null;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL query operation: getBadges
 // ====================================================
 
@@ -779,6 +916,13 @@ export interface getUserCertificatesVariables {
 //==============================================================
 // START Enums and Input Objects
 //==============================================================
+
+export enum BadgeMintRequestStatus {
+  DONE = "DONE",
+  FAILED = "FAILED",
+  MINTING = "MINTING",
+  NEW = "NEW",
+}
 
 //==============================================================
 // END Enums and Input Objects
