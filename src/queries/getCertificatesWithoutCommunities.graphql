@@ -1,33 +1,41 @@
 query getCertificatesWithoutCommunities(
-  $count: Int!
-  $after: String
-  $contracts: [String!]
+	$count: Int!
+	$after: String
+	$contracts: [String!]
 ) {
-  certificatesWithoutCommunities: certificates(
-    first: $count
-    after: $after
-    contracts: $contracts
-  ) {
-    totalCount
-    edges {
-      node {
-        id
-        animationUri
-        backgroundColor
-        claimable
-        resourceUrl
-        issuer
-        imageUri
-        name
-        description
-        winner
-        evidence
-        state
-      }
-    }
-    pageInfo {
-      hasNextPage
-      endCursor
-    }
-  }
+	certificatesWithoutCommunities: certificates(
+		first: $count
+		after: $after
+		contracts: $contracts
+	) {
+		totalCount
+		edges {
+			node {
+				id
+				animationUri
+				backgroundColor
+				claimable
+				criteria
+				description
+				evidence
+				imageUri
+				issuer
+				metadataVersion
+				name
+				properties
+				tags
+				textColor
+				winner
+				winnerAddress
+				tokenId
+				state
+				resourceUrl
+				metadataText
+			}
+		}
+		pageInfo {
+			hasNextPage
+			endCursor
+		}
+	}
 }

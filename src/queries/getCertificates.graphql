@@ -41,6 +41,8 @@ query getCertificates(
 				tags
 				textColor
 				winner
+				winnerAddress
+				tokenId
 				state
 				resourceUrl
 				metadataText

@@ -3,6 +3,200 @@
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL query operation: getBadge
+// ====================================================
+
+export interface getBadge_node_BadgeMintRequest {
+  __typename: "BadgeMintRequest" | "Certificate";
+}
+
+export interface getBadge_node_Badge {
+  __typename: "Badge";
+  id: string;
+  /**
+   * Background color of the badge
+   */
+  backgroundColor: string | null;
+  /**
+   * The animated version of certification image url
+   */
+  certificateAnimationUri: string | null;
+  /**
+   * The archetype of certification image url to be minted from the badge
+   */
+  certificateImageUri: string | null;
+  /**
+   * Whether to be able to be claimed
+   */
+  claimable: boolean | null;
+  /**
+   * Criteria of the badge: A narrative of what is needed to earn the badge.
+   */
+  criteria: string | null;
+  /**
+   * Description of the badge
+   */
+  description: string | null;
+  /**
+   * Issuer of the badge
+   */
+  issuer: string | null;
+  /**
+   * Metadata version
+   */
+  metadataVersion: number | null;
+  /**
+   * Badge Name
+   */
+  name: string | null;
+  /**
+   * Property of badge
+   */
+  properties: any;
+  /**
+   * Tags of the badge
+   */
+  tags: string[] | null;
+  /**
+   * Text color of the badge
+   */
+  textColor: string | null;
+  /**
+   * Whether to be able to be transferred
+   */
+  transferable: boolean | null;
+  /**
+   * Chain ID of Badge
+   */
+  chainId: number | null;
+  /**
+   * Contract of Badge
+   */
+  contract: string | null;
+  /**
+   * Metadata of Badge
+   */
+  metadataText: string | null;
+  /**
+   * resourceUrl of Badge
+   */
+  resourceUrl: string | null;
+}
+
+export type getBadge_node = getBadge_node_BadgeMintRequest | getBadge_node_Badge;
+
+export interface getBadge {
+  node: getBadge_node | null;
+}
+
+export interface getBadgeVariables {
+  id: string;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL query operation: getBadgeMintRequest
+// ====================================================
+
+export interface getBadgeMintRequest_node_Badge {
+  __typename: "Badge" | "Certificate";
+}
+
+export interface getBadgeMintRequest_node_BadgeMintRequest_badge {
+  __typename: "Badge";
+  id: string;
+  /**
+   * Background color of the badge
+   */
+  backgroundColor: string | null;
+  /**
+   * The animated version of certification image url
+   */
+  certificateAnimationUri: string | null;
+  /**
+   * The archetype of certification image url to be minted from the badge
+   */
+  certificateImageUri: string | null;
+  /**
+   * Whether to be able to be claimed
+   */
+  claimable: boolean | null;
+  /**
+   * Criteria of the badge: A narrative of what is needed to earn the badge.
+   */
+  criteria: string | null;
+  /**
+   * Description of the badge
+   */
+  description: string | null;
+  /**
+   * Issuer of the badge
+   */
+  issuer: string | null;
+  /**
+   * Metadata version
+   */
+  metadataVersion: number | null;
+  /**
+   * Badge Name
+   */
+  name: string | null;
+  /**
+   * Text color of the badge
+   */
+  textColor: string | null;
+  /**
+   * Whether to be able to be transferred
+   */
+  transferable: boolean | null;
+  /**
+   * Chain ID of Badge
+   */
+  chainId: number | null;
+  /**
+   * Contract of Badge
+   */
+  contract: string | null;
+  /**
+   * Metadata of Badge
+   */
+  metadataText: string | null;
+  /**
+   * resourceUrl of Badge
+   */
+  resourceUrl: string | null;
+}
+
+export interface getBadgeMintRequest_node_BadgeMintRequest {
+  __typename: "BadgeMintRequest";
+  id: string;
+  status: BadgeMintRequestStatus;
+  requestedAt: string;
+  issuerId: string | null;
+  transactionRequestId: string | null;
+  winnerId: string;
+  badge: getBadgeMintRequest_node_BadgeMintRequest_badge;
+  winnerAddress: string;
+}
+
+export type getBadgeMintRequest_node = getBadgeMintRequest_node_Badge | getBadgeMintRequest_node_BadgeMintRequest;
+
+export interface getBadgeMintRequest {
+  node: getBadgeMintRequest_node | null;
+}
+
+export interface getBadgeMintRequestVariables {
+  id: string;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL query operation: getBadgeMintRequests
 // ====================================================
 
@@ -275,6 +469,103 @@ export interface getBadgesVariables {
 // This file was automatically generated and should not be edited.
 
 // ====================================================
+// GraphQL query operation: getCertificate
+// ====================================================
+
+export interface getCertificate_node_Badge {
+  __typename: "Badge" | "BadgeMintRequest";
+}
+
+export interface getCertificate_node_Certificate {
+  __typename: "Certificate";
+  id: string;
+  /**
+   * The animated version of certificate image url
+   */
+  animationUri: string | null;
+  /**
+   * Background color of the badge
+   */
+  backgroundColor: string | null;
+  /**
+   * Whether to be able to be claimed
+   */
+  claimable: boolean | null;
+  /**
+   * Criteria of the badge: A narrative of what is needed to earn the badge.
+   */
+  criteria: string | null;
+  /**
+   * Description of the certificate
+   */
+  description: string | null;
+  /**
+   * Evidence of the certificate
+   */
+  evidence: string | null;
+  /**
+   * The certificate image uri
+   */
+  imageUri: string | null;
+  /**
+   * Issuer of the badge
+   */
+  issuer: string | null;
+  /**
+   * Version metadata
+   */
+  metadataVersion: number | null;
+  /**
+   * Certificate Name
+   */
+  name: string | null;
+  /**
+   * Properties of certificate
+   */
+  properties: any;
+  /**
+   * Tags of the Certificate
+   */
+  tags: string[] | null;
+  /**
+   * Text color of the badge
+   */
+  textColor: string | null;
+  /**
+   * Winner of the certificate
+   */
+  winner: string | null;
+  winnerAddress: string | null;
+  tokenId: string | null;
+  /**
+   * State of the certificate
+   */
+  state: string | null;
+  /**
+   * ResourceUrl of certificate
+   */
+  resourceUrl: string | null;
+  /**
+   * Metadata of certificate
+   */
+  metadataText: string | null;
+}
+
+export type getCertificate_node = getCertificate_node_Badge | getCertificate_node_Certificate;
+
+export interface getCertificate {
+  node: getCertificate_node | null;
+}
+
+export interface getCertificateVariables {
+  id: string;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
 // GraphQL query operation: getCertificates
 // ====================================================
 
@@ -337,6 +628,8 @@ export interface getCertificates_certificates_edges_node {
    * Winner of the certificate
    */
   winner: string | null;
+  winnerAddress: string | null;
+  tokenId: string | null;
   /**
    * State of the certificate
    */
@@ -579,6 +872,8 @@ export interface getCertificatesWithBadges_certificates_edges_node {
    * Winner of the certificate
    */
   winner: string | null;
+  winnerAddress: string | null;
+  tokenId: string | null;
   /**
    * State of the certificate
    */
@@ -675,37 +970,63 @@ export interface getCertificatesWithCommunities_certificatesWithCommunities_edge
    */
   claimable: boolean | null;
   /**
-   * ResourceUrl of certificate
+   * Criteria of the badge: A narrative of what is needed to earn the badge.
    */
-  resourceUrl: string | null;
-  /**
-   * Issuer of the badge
-   */
-  issuer: string | null;
-  /**
-   * The certificate image uri
-   */
-  imageUri: string | null;
-  /**
-   * Certificate Name
-   */
-  name: string | null;
+  criteria: string | null;
   /**
    * Description of the certificate
    */
   description: string | null;
   /**
-   * Winner of the certificate
-   */
-  winner: string | null;
-  /**
    * Evidence of the certificate
    */
   evidence: string | null;
   /**
+   * The certificate image uri
+   */
+  imageUri: string | null;
+  /**
+   * Issuer of the badge
+   */
+  issuer: string | null;
+  /**
+   * Version metadata
+   */
+  metadataVersion: number | null;
+  /**
+   * Certificate Name
+   */
+  name: string | null;
+  /**
+   * Properties of certificate
+   */
+  properties: any;
+  /**
+   * Tags of the Certificate
+   */
+  tags: string[] | null;
+  /**
+   * Text color of the badge
+   */
+  textColor: string | null;
+  /**
+   * Winner of the certificate
+   */
+  winner: string | null;
+  winnerAddress: string | null;
+  tokenId: string | null;
+  /**
    * State of the certificate
    */
   state: string | null;
+  /**
+   * ResourceUrl of certificate
+   */
+  resourceUrl: string | null;
+  /**
+   * Metadata of certificate
+   */
+  metadataText: string | null;
 }
 
 export interface getCertificatesWithCommunities_certificatesWithCommunities_edges {
@@ -769,37 +1090,63 @@ export interface getCertificatesWithoutCommunities_certificatesWithoutCommunitie
    */
   claimable: boolean | null;
   /**
-   * ResourceUrl of certificate
+   * Criteria of the badge: A narrative of what is needed to earn the badge.
    */
-  resourceUrl: string | null;
-  /**
-   * Issuer of the badge
-   */
-  issuer: string | null;
-  /**
-   * The certificate image uri
-   */
-  imageUri: string | null;
-  /**
-   * Certificate Name
-   */
-  name: string | null;
+  criteria: string | null;
   /**
    * Description of the certificate
    */
   description: string | null;
   /**
-   * Winner of the certificate
-   */
-  winner: string | null;
-  /**
    * Evidence of the certificate
    */
   evidence: string | null;
   /**
+   * The certificate image uri
+   */
+  imageUri: string | null;
+  /**
+   * Issuer of the badge
+   */
+  issuer: string | null;
+  /**
+   * Version metadata
+   */
+  metadataVersion: number | null;
+  /**
+   * Certificate Name
+   */
+  name: string | null;
+  /**
+   * Properties of certificate
+   */
+  properties: any;
+  /**
+   * Tags of the Certificate
+   */
+  tags: string[] | null;
+  /**
+   * Text color of the badge
+   */
+  textColor: string | null;
+  /**
+   * Winner of the certificate
+   */
+  winner: string | null;
+  winnerAddress: string | null;
+  tokenId: string | null;
+  /**
    * State of the certificate
    */
   state: string | null;
+  /**
+   * ResourceUrl of certificate
+   */
+  resourceUrl: string | null;
+  /**
+   * Metadata of certificate
+   */
+  metadataText: string | null;
 }
 
 export interface getCertificatesWithoutCommunities_certificatesWithoutCommunities_edges {

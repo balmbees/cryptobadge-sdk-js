@@ -1,33 +1,41 @@
 query getCertificatesWithCommunities(
-  $count: Int!
-  $after: String
-  $issuers: [String!]
+	$count: Int!
+	$after: String
+	$issuers: [String!]
 ) {
-  certificatesWithCommunities: certificates(
-    first: $count
-    after: $after
-    issuers: $issuers
-  ) {
-    totalCount
-    edges {
-      node {
-        id
-        animationUri
-        backgroundColor
-        claimable
-        resourceUrl
-        issuer
-        imageUri
-        name
-        description
-        winner
-        evidence
-        state
-      }
-    }
-    pageInfo {
-      hasNextPage
-      endCursor
-    }
-  }
+	certificatesWithCommunities: certificates(
+		first: $count
+		after: $after
+		issuers: $issuers
+	) {
+		totalCount
+		edges {
+			node {
+				id
+				animationUri
+				backgroundColor
+				claimable
+				criteria
+				description
+				evidence
+				imageUri
+				issuer
+				metadataVersion
+				name
+				properties
+				tags
+				textColor
+				winner
+				winnerAddress
+				tokenId
+				state
+				resourceUrl
+				metadataText
+			}
+		}
+		pageInfo {
+			hasNextPage
+			endCursor
+		}
+	}
 }

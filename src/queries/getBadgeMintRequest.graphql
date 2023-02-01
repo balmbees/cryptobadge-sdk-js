@@ -1,0 +1,31 @@
+query getBadgeMintRequest($id: String!) {
+	node(id: $id) {
+		... on BadgeMintRequest {
+			id
+			status
+			requestedAt
+			issuerId
+			transactionRequestId
+			winnerId
+			badge {
+				id
+				backgroundColor
+				certificateAnimationUri
+				certificateImageUri
+				claimable
+				criteria
+				description
+				issuer
+				metadataVersion
+				name
+				textColor
+				transferable
+				chainId
+				contract
+				metadataText
+				resourceUrl
+			}
+			winnerAddress
+		}
+	}
+}
