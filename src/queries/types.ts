@@ -1260,6 +1260,83 @@ export interface getUserCertificatesVariables {
 /* eslint-disable */
 // This file was automatically generated and should not be edited.
 
+// ====================================================
+// GraphQL mutation operation: refreshMetadata
+// ====================================================
+
+export interface refreshMetadata_refreshMetadata {
+  __typename: "Badge" | "BadgeMintRequest" | "Certificate";
+  id: string;
+}
+
+export interface refreshMetadata {
+  refreshMetadata: refreshMetadata_refreshMetadata | null;
+}
+
+export interface refreshMetadataVariables {
+  id: string;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// This file was automatically generated and should not be edited.
+
+// ====================================================
+// GraphQL mutation operation: setTransactionRequestToBadgeMintRequest
+// ====================================================
+
+export interface setTransactionRequestToBadgeMintRequest_setTransactionRequestToBadgeMintRequest_badge {
+  __typename: "Badge";
+  id: string;
+  /**
+   * Badge Name
+   */
+  name: string | null;
+  /**
+   * Chain ID of Badge
+   */
+  chainId: number | null;
+  /**
+   * Contract of Badge
+   */
+  contract: string | null;
+  /**
+   * Metadata of Badge
+   */
+  metadataText: string | null;
+  /**
+   * resourceUrl of Badge
+   */
+  resourceUrl: string | null;
+}
+
+export interface setTransactionRequestToBadgeMintRequest_setTransactionRequestToBadgeMintRequest {
+  __typename: "BadgeMintRequest";
+  id: string;
+  status: BadgeMintRequestStatus;
+  issuerId: string | null;
+  transactionRequestId: string | null;
+  winnerId: string;
+  badge: setTransactionRequestToBadgeMintRequest_setTransactionRequestToBadgeMintRequest_badge;
+  winnerAddress: string;
+}
+
+export interface setTransactionRequestToBadgeMintRequest {
+  /**
+   * Call this mutation when minting transaction
+   */
+  setTransactionRequestToBadgeMintRequest: setTransactionRequestToBadgeMintRequest_setTransactionRequestToBadgeMintRequest;
+}
+
+export interface setTransactionRequestToBadgeMintRequestVariables {
+  transactionRequestId: string;
+  badgeMintRequestId: string;
+}
+
+/* tslint:disable */
+/* eslint-disable */
+// This file was automatically generated and should not be edited.
+
 //==============================================================
 // START Enums and Input Objects
 //==============================================================

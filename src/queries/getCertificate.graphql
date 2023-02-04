@@ -1,26 +1,26 @@
 query getCertificate($id: String!) {
-	node(id: $id) {
-		... on Certificate {
-			id
-			animationUri
-			backgroundColor
-			claimable
-			criteria
-			description
-			evidence
-			imageUri
-			issuer
-			metadataVersion
-			name
-			properties
-			tags
-			textColor
-			winner
-			winnerAddress
-			tokenId
-			state
-			resourceUrl
-			metadataText
-		}
-	}
+  node(id: $id) {
+    ... on Certificate {
+      id
+      animationUri
+      backgroundColor
+      claimable
+      criteria
+      description
+      evidence
+      imageUri
+      issuer
+      metadataVersion
+      name
+      properties
+      tags
+      textColor
+      winner
+      winnerAddress
+      tokenId
+      state
+      resourceUrl
+      metadataText
+    }
+  }
 }

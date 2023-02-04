@@ -1,0 +1,24 @@
+mutation setTransactionRequestToBadgeMintRequest(
+  $transactionRequestId: String!
+  $badgeMintRequestId: String!
+) {
+  setTransactionRequestToBadgeMintRequest(
+    transactionRequestId: $transactionRequestId
+    badgeMintRequestId: $badgeMintRequestId
+  ) {
+    id
+    status
+    issuerId
+    transactionRequestId
+    winnerId
+    badge {
+      id
+      name
+      chainId
+      contract
+      metadataText
+      resourceUrl
+    }
+    winnerAddress
+  }
+}

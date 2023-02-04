@@ -1,24 +1,24 @@
 query getBadge($id: String!) {
-	node(id: $id) {
-		... on Badge {
-			id
-			backgroundColor
-			certificateAnimationUri
-			certificateImageUri
-			claimable
-			criteria
-			description
-			issuer
-			metadataVersion
-			name
-			properties
-			tags
-			textColor
-			transferable
-			chainId
-			contract
-			metadataText
-			resourceUrl
-		}
-	}
+  node(id: $id) {
+    ... on Badge {
+      id
+      backgroundColor
+      certificateAnimationUri
+      certificateImageUri
+      claimable
+      criteria
+      description
+      issuer
+      metadataVersion
+      name
+      properties
+      tags
+      textColor
+      transferable
+      chainId
+      contract
+      metadataText
+      resourceUrl
+    }
+  }
 }

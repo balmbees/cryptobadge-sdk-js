@@ -1,80 +1,80 @@
 query getCertificatesWithBadges(
-	$before: String
-	$after: String
-	$first: Int
-	$last: Int
-	$name: String
-	$issuer: String
-	$winner: String
-	$userId: String
-	$addresses: [String!]
-	$issuers: [String!]
-	$contracts: [String!]
+  $before: String
+  $after: String
+  $first: Int
+  $last: Int
+  $name: String
+  $issuer: String
+  $winner: String
+  $userId: String
+  $addresses: [String!]
+  $issuers: [String!]
+  $contracts: [String!]
 ) {
-	certificates(
-		before: $before
-		after: $after
-		first: $first
-		last: $last
-		name: $name
-		issuer: $issuer
-		winner: $winner
-		userId: $userId
-		addresses: $addresses
-		issuers: $issuers
-		contracts: $contracts
-	) {
-		edges {
-			node {
-				id
-				animationUri
-				backgroundColor
-				claimable
-				criteria
-				description
-				evidence
-				imageUri
-				issuer
-				metadataVersion
-				name
-				properties
-				tags
-				textColor
-				winner
-				winnerAddress
-				tokenId
-				state
-				resourceUrl
-				metadataText
-				badge {
-					id
-					backgroundColor
-					certificateAnimationUri
-					certificateImageUri
-					claimable
-					criteria
-					description
-					issuer
-					metadataVersion
-					name
-					properties
-					tags
-					textColor
-					transferable
-					chainId
-					contract
-					metadataText
-					resourceUrl
-				}
-			}
-			cursor
-		}
-		pageInfo {
-			startCursor
-			endCursor
-			hasPreviousPage
-			hasNextPage
-		}
-		totalCount
-	}
+  certificates(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    name: $name
+    issuer: $issuer
+    winner: $winner
+    userId: $userId
+    addresses: $addresses
+    issuers: $issuers
+    contracts: $contracts
+  ) {
+    edges {
+      node {
+        id
+        animationUri
+        backgroundColor
+        claimable
+        criteria
+        description
+        evidence
+        imageUri
+        issuer
+        metadataVersion
+        name
+        properties
+        tags
+        textColor
+        winner
+        winnerAddress
+        tokenId
+        state
+        resourceUrl
+        metadataText
+        badge {
+          id
+          backgroundColor
+          certificateAnimationUri
+          certificateImageUri
+          claimable
+          criteria
+          description
+          issuer
+          metadataVersion
+          name
+          properties
+          tags
+          textColor
+          transferable
+          chainId
+          contract
+          metadataText
+          resourceUrl
+        }
+      }
+      cursor
+    }
+    pageInfo {
+      startCursor
+      endCursor
+      hasPreviousPage
+      hasNextPage
+    }
+    totalCount
+  }
 }
