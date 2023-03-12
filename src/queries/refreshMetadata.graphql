@@ -1,5 +1,0 @@
-mutation refreshMetadata($id: String!) {
-  refreshMetadata(id: $id) {
-    id
-  }
-}

@@ -1,4 +1,4 @@
-query getBadges(
+query getBadgesWithCertificates(
   $before: String
   $first: Int
   $after: String
@@ -40,6 +40,33 @@ query getBadges(
         contract
         metadataText
         resourceUrl
+        certificates {
+          edges {
+            node {
+              id
+              animationUri
+              backgroundColor
+              claimable
+              criteria
+              description
+              evidence
+              imageUri
+              issuer
+              metadataVersion
+              name
+              properties
+              tags
+              textColor
+              winner
+              winnerAddress
+              tokenId
+              state
+              resourceUrl
+              metadataText
+              expiredAt
+            }
+          }
+        }
       }
       cursor
     }

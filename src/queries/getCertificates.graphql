@@ -46,6 +46,10 @@ query getCertificates(
         state
         resourceUrl
         metadataText
+        expiredAt
+        badge {
+          id
+        }
       }
       cursor
     }

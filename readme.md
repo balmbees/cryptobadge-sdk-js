@@ -3,7 +3,7 @@
 ## update schema
 
 ```
-apollo schema:download --endpoint https://api.cryptobadge.xyz/api
+npx apollo schema:download --endpoint https://api.cryptobadge.xyz/api
 ```
 
 ## generate queries

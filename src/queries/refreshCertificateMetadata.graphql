@@ -1,5 +1,6 @@
-query getCertificate($id: String!) {
-  node(id: $id) {
+mutation refreshCertificateMetadata($certificateRefreshId: String!) {
+  # certificateRefreshId: {chainId}/{contract}/{tokenId}/Certificate
+  refreshMetadata(id: $certificateRefreshId) {
     ... on Certificate {
       id
       animationUri

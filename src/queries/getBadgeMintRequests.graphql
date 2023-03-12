@@ -22,6 +22,7 @@ query getBadgeMintRequests(
         issuerId
         transactionRequestId
         winnerId
+        winnerAddress
         badge {
           id
           backgroundColor
@@ -40,7 +41,6 @@ query getBadgeMintRequests(
           metadataText
           resourceUrl
         }
-        winnerAddress
       }
       cursor
     }
