@@ -1,0 +1,81 @@
+query getBadgesWithCertificates(
+  $before: String
+  $first: Int
+  $after: String
+  $last: Int
+  $name: String
+  $issuer: String
+  $issuers: [String!]
+  $chainId: Int
+  $claimable: Boolean
+) {
+  badges(
+    before: $before
+    first: $first
+    after: $after
+    last: $last
+    name: $name
+    issuer: $issuer
+    issuers: $issuers
+    chainId: $chainId
+    claimable: $claimable
+  ) {
+    edges {
+      node {
+        id
+        backgroundColor
+        certificateAnimationUri
+        certificateImageUri
+        claimable
+        criteria
+        description
+        issuer
+        metadataVersion
+        name
+        properties
+        tags
+        textColor
+        transferable
+        chainId
+        contract
+        metadataText
+        resourceUrl
+        certificates {
+          edges {
+            node {
+              id
+              animationUri
+              backgroundColor
+              claimable
+              criteria
+              description
+              evidence
+              imageUri
+              issuer
+              metadataVersion
+              name
+              properties
+              tags
+              textColor
+              winner
+              winnerAddress
+              tokenId
+              state
+              resourceUrl
+              metadataText
+              expiredAt
+            }
+          }
+        }
+      }
+      cursor
+    }
+    pageInfo {
+      startCursor
+      endCursor
+      hasPreviousPage
+      hasNextPage
+    }
+    totalCount
+  }
+}

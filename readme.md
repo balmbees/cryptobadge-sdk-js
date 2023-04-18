@@ -1,11 +1,13 @@
 # Cryptobadge SDK
 
 ## update schema
+
 ```
-apollo schema:download --endpoint https://api.cryptobadge.app/graphql
+npx apollo schema:download --endpoint https://api.cryptobadge.xyz/api
 ```
 
 ## generate queries
+
 ```
 npm run generate
 ```

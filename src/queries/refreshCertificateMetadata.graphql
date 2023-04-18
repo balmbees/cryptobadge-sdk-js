@@ -1,0 +1,31 @@
+mutation refreshCertificateMetadata($certificateRefreshId: String!) {
+  # certificateRefreshId: {chainId}/{contract}/{tokenId}/Certificate
+  refreshMetadata(id: $certificateRefreshId) {
+    ... on Certificate {
+      id
+      animationUri
+      backgroundColor
+      claimable
+      criteria
+      description
+      evidence
+      imageUri
+      issuer
+      metadataVersion
+      name
+      properties
+      tags
+      textColor
+      winner
+      winnerAddress
+      tokenId
+      state
+      resourceUrl
+      metadataText
+      expiredAt
+      badge {
+        id
+      }
+    }
+  }
+}

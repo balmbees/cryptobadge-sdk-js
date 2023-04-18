@@ -1,0 +1,25 @@
+mutation refreshBadgeMetadata($badgeRefreshId: String!) {
+  # badgeRefreshId: {chainId}/{contract}/Badge
+  refreshMetadata(id: $badgeRefreshId) {
+    ... on Badge {
+      id
+      backgroundColor
+      certificateAnimationUri
+      certificateImageUri
+      claimable
+      criteria
+      description
+      issuer
+      metadataVersion
+      name
+      properties
+      tags
+      textColor
+      transferable
+      chainId
+      contract
+      resourceUrl
+      metadataText
+    }
+  }
+}
