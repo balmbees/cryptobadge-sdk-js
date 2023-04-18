@@ -7,6 +7,8 @@ query getBadgeMintRequest($id: String!) {
       issuerId
       transactionRequestId
       winnerId
+      winnerName
+      winnerAddress
       badge {
         id
         backgroundColor
@@ -25,7 +27,6 @@ query getBadgeMintRequest($id: String!) {
         metadataText
         resourceUrl
       }
-      winnerAddress
     }
   }
 }
