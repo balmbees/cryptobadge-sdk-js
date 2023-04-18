@@ -178,8 +178,9 @@ export interface getBadgeMintRequest_node_BadgeMintRequest {
   issuerId: string | null;
   transactionRequestId: string | null;
   winnerId: string;
-  badge: getBadgeMintRequest_node_BadgeMintRequest_badge;
+  winnerName: string | null;
   winnerAddress: string | null;
+  badge: getBadgeMintRequest_node_BadgeMintRequest_badge;
 }
 
 export type getBadgeMintRequest_node = getBadgeMintRequest_node_Badge | getBadgeMintRequest_node_BadgeMintRequest;
@@ -273,6 +274,7 @@ export interface getBadgeMintRequests_badgeMintRequests_edges_node {
   issuerId: string | null;
   transactionRequestId: string | null;
   winnerId: string;
+  winnerName: string | null;
   winnerAddress: string | null;
   badge: getBadgeMintRequests_badgeMintRequests_edges_node_badge;
 }

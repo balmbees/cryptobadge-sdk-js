@@ -1,6 +1,6 @@
 {
   "name": "@vingle/cryptobadge-sdk",
-  "version": "3.0.1-beta3",
+  "version": "3.0.1-beta4",
   "description": "",
   "main": "./dst/index.js",
   "typings": "./dst/index.d.ts",
